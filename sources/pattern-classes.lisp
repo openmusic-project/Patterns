@@ -531,17 +531,55 @@
 ;;; heap is a cycle that shuffles its elements each time through
 ;;;
 
+;; (progn
+;;   (defclass heap (cycle)
+;;     ((random-state :initform *random-state* :initarg :state :accessor pattern-random-state)))
+;;   (defparameter <heap> (find-class 'heap))
+;;   (finalize-inheritance <heap>))
+
+;; (defmethod pattern-external-inits ((obj heap))
+;;   (let ((inits (call-next-method)))
+;;     (if (eq *random-state* (pattern-random-state obj))
+;;         inits
+;; 	(append inits (list :state (pattern-random-state obj))))))
+
+;; (defmethod initialize-instance :after ((obj heap) &rest args)
+;;   (let ((cyc (pattern-data obj)))
+;;     (cycl-data-set! cyc (copy-list (cycl-data cyc)))))
+
+;; (defmethod next-in-pattern ((obj heap))
+;;   (flet ((shufl (lis len state)
+;;            (loop
+;; 	      for i below len
+;; 	      for j = (random len state)
+;; 	      for v = (elt lis i)
+;; 	      do
+;; 		(setf (elt lis i) (elt lis j))
+;; 		(setf (elt lis j) v))
+;;            lis))
+;;     (let ((cyc (pattern-data obj)))
+;;       (when (null (cycl-tail cyc))
+;; 	(cycl-tail-set! cyc
+;; 			(shufl
+;; 			 (cycl-data cyc)
+;; 			 (pattern-length obj)
+;; 			 (pattern-random-state obj))))
+;;       (pop-cycl cyc))))
+
 (progn
   (defclass heap (cycle)
-    ((random-state :initform *random-state* :initarg :state :accessor pattern-random-state)))
+    ((random-state :initform *random-state* :initarg :state :accessor pattern-random-state)
+     (elide-last? :initform nil :initarg :elide-last? :accessor heap-elide-last?)))
   (defparameter <heap> (find-class 'heap))
   (finalize-inheritance <heap>))
 
 (defmethod pattern-external-inits ((obj heap))
-  (let ((inits (call-next-method)))
-    (if (eq *random-state* (pattern-random-state obj))
-        inits
-	(append inits (list :state (pattern-random-state obj))))))
+  (let ((inits (call-next-method))
+	(state (pattern-random-state obj))
+	(elide-last? (heap-elide-last? obj)))
+    (append inits
+	    (and state (list :state state))
+	    (and elide-last? (list :elide-last? elide-last?)))))
 
 (defmethod initialize-instance :after ((obj heap) &rest args)
   (let ((cyc (pattern-data obj)))
@@ -560,11 +598,24 @@
     (let ((cyc (pattern-data obj)))
       (when (null (cycl-tail cyc))
 	(cycl-tail-set! cyc
-			(shufl
-			 (cycl-data cyc)
-			 (pattern-length obj)
-			 (pattern-random-state obj))))
-      (pop-cycl cyc))))
+			(if (heap-elide-last? obj)
+			    (loop for new-cycle = (shufl
+						   (cycl-data cyc)
+						   (pattern-length obj)
+						   (pattern-random-state obj))
+			       while (equal (car new-cycle) (heap-elide-last? obj))
+			       finally (return new-cycle))
+			    (shufl
+			     (cycl-data cyc)
+			     (pattern-length obj)
+			     (pattern-random-state obj)))))
+      (if (heap-elide-last? obj)
+	  (setf (heap-elide-last? obj) (pop-cycl cyc))
+	  (pop-cycl cyc)))))
+
+;; (let ((hhh (make-instance 'heap :of '(0 1 2) :elide-last? t)))
+;;   (loop repeat 20 collect (next-in-pattern hhh)))
+
 
 
 ;;;

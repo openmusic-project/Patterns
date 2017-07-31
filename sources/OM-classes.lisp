@@ -53,11 +53,12 @@
   (make-instance 'ompa:line :of of
 		 :name name :for for :eop-hook eop-hook :repeat repeat))
 
-(defmethod! p-heap (of &key for (repeat t) name (state *random-state*) eop-hook)
+(defmethod! p-heap (of &key elide-last? for (repeat t) name (state *random-state*) eop-hook)
   :icon pattern-icon
   :doc "Returns a heap pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:heap :of of
+		 :elide-last? elide-last?
 		 :state state 
 		 :name name :for for :eop-hook eop-hook :repeat repeat))
 

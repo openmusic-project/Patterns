@@ -324,7 +324,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :doc "returns a closure around name, in a null lexical environment"
   (let ((sym (intern (string name))))
     (setf (symbol-value sym) nil)
-    (enclose (list 'lambda '() name) nil)))
+    (enclose (list 'lambda '() `,name) nil)))
 
 (defmethod! set-pval (name val)
   :icon pattern-icon
@@ -342,6 +342,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
 
 #|
 
+(pval 'yoyoba)
 (setf xxx (p-cycle (list 1 2 (pval 'yoyoba))))
 (p-next xxx t)
 (set-pval 'yoyoba 12)

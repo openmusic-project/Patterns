@@ -1,7 +1,7 @@
 (in-package :om)
 
 ;;;
-;;; Time-stamp: <2017-03-20 14:57:37 andersvi>
+;;; Time-stamp: <2017-12-20 15:46:16 andersvi>
 ;;;
 ;;; Patterns library for OM, Anders Vinjar
 ;;;
@@ -45,7 +45,7 @@
 (let* ((srcdir (append (pathname-directory *load-pathname*) '("sources")))
        (pattern-files '("utils" "pattern-classes" "OM-classes")))
   (mapc #'(lambda (f)
-	    (compile&load (make-pathname :directory srcdir :name f :type "lisp")))
+	    (compile&load (make-pathname :directory srcdir :name f)))
 	pattern-files))
 
 ;; (om::addpackage2pack (find-library "PATTERNS") om::*om-package-tree*)

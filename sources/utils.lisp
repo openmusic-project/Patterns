@@ -6,7 +6,7 @@
 
 (in-package :ompa)
 
-(defparameter *pattern-version* 0.97)
+(defparameter *pattern-version* '0.99.3)
 (defparameter *pattern-date* '2017-03-20)
 
 (defun quote-if-necessary (x)

@@ -1005,7 +1005,8 @@
 			     (print? t)			    ; t pattern table
 			     (pattern? t)		    ; nil or pattern
 			     sort?
-			     (print-decimals 3) (period nil) key)
+			     (print-decimals 3) (period nil) key
+			     returning)
   (let ((len (length seq))
         (labels '())				      ; the set of all outcomes 
         (table '())
@@ -1137,7 +1138,7 @@
         (force-output))
       (when pattern?
 	;; patterns not defined yet, cant use new or <markov>
-	(make-instance (find-class 'markov) :of pat :for period)))))
+	(make-instance (find-class 'markov) :of pat :for period :returning returning)))))
 
 ;;;
 ;;; graph traverses its nodes by applying a selection

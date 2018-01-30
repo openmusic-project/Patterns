@@ -28,51 +28,60 @@
   (ompa::eod? x))
 
 
-;; TODO: add rest of slots: traversing, counting, returning, through, parser...
+;; TODO: add rest of slots: traversing, counting, through, parser...
 
 (defmethod! p-cycle (of &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
-  :indoc '("data" "for" "repeat" "of pattern" "eop-hook")
+  :indoc '("data" "for" "repeat" "of pattern" "returning" "eop-hook")
   :doc "Returns a cycle pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:cycle :of of 
-		 :name name :for for :eop-hook eop-hook :repeat repeat :returning returning))
+			     :name name :for for :eop-hook eop-hook
+			     :repeat repeat :returning returning))
 
-(defmethod! p-palindrome (of elide &key for (repeat t) name eop-hook)
+(defmethod! p-palindrome (of elide &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
   :menuins '((1 (("t" t) ("nil" nil))))
+  :indoc '("of" "elide?" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a palindrome pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:palindrome :of of :elide elide
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+				  :name name :for for :eop-hook eop-hook
+				  :repeat repeat :returning returning))
 
-(defmethod! p-line (of &key for (repeat t) name eop-hook)
+(defmethod! p-line (of &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a line pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:line :of of
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			    :name name :for for :eop-hook eop-hook
+			    :repeat repeat :returning returning))
 
-(defmethod! p-heap (of &key elide-last? for (repeat t) name (state *random-state*) eop-hook)
+(defmethod! p-heap (of &key elide-last? for (repeat t) name (state *random-state*) returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "elide-last?" "for" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a heap pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:heap :of of
-		 :elide-last? elide-last?
-		 :state state 
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			    :elide-last? elide-last?
+			    :state state 
+			    :name name :for for :eop-hook eop-hook
+			    :repeat repeat :returning returning))
 
-(defmethod! p-weighting (of &key for (repeat t) name 
-			    (state *random-state*) eop-hook)
+(defmethod! p-weighting (of &key for (repeat t) name (state *random-state*) returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a weighting pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:weighting :of of
-		 :state state
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+				 :state state
+				 :name name :for for :eop-hook eop-hook
+				 :repeat repeat :returning returning))
 
 (defmethod! p-w-node (x &key (weight 1) min max)
   :icon pattern-icon
+  :indoc '("x" "weight" "min" "max")
   :initvals '(nil 1 nil nil)
   :doc "returns a node for a p-weighting pattern"
   (let ((min? (when min (list :min min)))
@@ -80,13 +89,15 @@
     `(,x :weight ,weight ,@min? ,@max?)))
 
 
-(defmethod! p-markov (of &key for past (repeat t) name  eop-hook)
+(defmethod! p-markov (of &key for past (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "past" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a markov pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:markov :of of
-		 :past past 
-		 :name name :for for :eop-hook eop-hook :repeat repeat :past past))
+			      :past past 
+			      :name name :for for :eop-hook eop-hook :repeat repeat
+			      :past past :returning returning))
 
 (defmethod! p-transition (lhs rhs)
   :icon pattern-icon
@@ -97,7 +108,8 @@
 
 
 (defmethod! p-markov-analyze ((seq list) &key (order 1) (print? nil) (pattern? t)
-			      sort? (print-decimals 3) (period nil) key)
+					 sort? (print-decimals 3) (period nil) key returning)
+  :indoc '("seq" "order" "print?" "pattern?" "sort?" "print-decimals" "period" "key" "returning")
   :icon pattern-icon
   :doc "(markov-analyze list [:order i] [:print? b] [:pattern? b] [:key l])
 
@@ -105,14 +117,16 @@ Performs an analysis of elements in list and prints or returns the results."
   (ompa::markov-analyze seq
 			:order order :print? print? :pattern? pattern?
 			:sort? sort? :print-decimals print-decimals
-			:period period :key key))
+			:period period :key key :returning returning))
 
-(defmethod! p-graph (of &key for (repeat t) name eop-hook)
+(defmethod! p-graph (of &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a graph pattern"
-  (assert repeat (repeat) "repeat must be set to 't' or a number")
+  (assert repeat (repeat) "repeat must be 't' or a number")
   (make-instance 'ompa:graph :of of
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			     :name name :for for :eop-hook eop-hook
+			     :repeat repeat :returning returning))
 
 
 ;;; a graph node {element &key :id :to}:
@@ -141,27 +155,33 @@ where element is the value or sub-pattern in the node and is followed by one or 
 	(toform (if to (list :to to))))
     `(,element ,@nodeform ,@toform)))
 
-(defmethod! p-accumulation (of &key for (repeat t) name eop-hook)
+(defmethod! p-accumulation (of &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a accumulation pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:accumulation :of of
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+				    :name name :for for :eop-hook eop-hook
+				    :repeat repeat :returning returning))
 
-(defmethod! p-thunk ((function function) &key for (repeat t) name eop-hook)
+(defmethod! p-thunk ((function function) &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("function" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a pattern based on function 'thunk'"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:thunk :of function
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			     :name name :for for :eop-hook eop-hook
+			     :repeat repeat :returning returning))
 
-(defmethod! p-rotation (of rotations &key for (repeat t) name eop-hook)
+(defmethod! p-rotation (of rotations &key for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :initvals '(nil (0 1 1))
   :doc "Returns a rotation pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:rotation :of of :rotations rotations
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+				:name name :for for :eop-hook eop-hook
+				:repeat repeat :returning returning))
 
 (defmethod! p-rewrite (of &key (rules nil rules?)
 			  (initially nil initially?)
@@ -169,8 +189,10 @@ where element is the value or sub-pattern in the node and is followed by one or 
 			  (for nil for?)
 			  (repeat t repeat?)
 			  (name nil name?)
+			  returning
 			  (eop-hook nil eop-hook?))
   :icon pattern-icon
+  :indoc '("of" "rules" "initially" "generations" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a rewrite pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   ;; (make-instance 'ompa:rewrite :of of :rules rules :initially initially
@@ -184,8 +206,8 @@ where element is the value or sub-pattern in the node and is followed by one or 
 			,@(when name? `(:name ',name))
 			,@(when for? `(:for ',for))
 			,@(when eop-hook? `(:eop-hook ',eop-hook))
-			,@(when repeat? `(:repeat ',repeat)))))
-
+			,@(when repeat? `(:repeat ',repeat))
+			,@(when returning `(:returning ',returning)))))
 
 (defmethod! p-rewrite-node (element &key id to)
   :icon pattern-icon
@@ -212,60 +234,6 @@ where element is the value or sub-pattern in the node and is followed by one or 
     `(,element ,@nodeform ,@toform)))
 
 
-;; (defmethod! p-range ((from number) &key ub lb by (inclusive nil) for (repeat t) name eop-hook)
-;;   :icon pattern-icon
-;;   :initvals '(0 nil 1 1 nil)
-;;   :doc "Returns a range pattern, start with from, bounded by ub and lb, step by 'by'"
-;;   :menuins '((0 (("from" 0) ("initially" 0))) (4 (("inclusive" t) ("exclusive" nil))))
-;;   (assert repeat (repeat) "repeat must be set to 't' or a number")
-;;   (let* ((bounded? (or ub lb))
-;; 	 (bounds `(,(if bounded? :from :initially) ,from
-;; 		    ,@(when bounded?
-;; 			(if lb
-;; 			    (list (if inclusive :to :below) ub
-;; 				  (if inclusive :downto :above) lb)
-;; 			    (list (if (< from ub)
-;; 				      (if inclusive :to :below)
-;; 				      (if inclusive :downto :above))
-;; 				  ub)))))
-;; 	 (byform `(,@(cond ((and bounded? by) (list :by by))
-;; 			   ((and (not bounded?) by) (list :stepping by))
-;; 			   (t nil)))))
-;;     (eval `(make-instance 'ompa:range ,@bounds ,@byform
-;;      			  :name ,name :for ,for :eop-hook ,eop-hook :repeat ,repeat))))
-
-;; (defmethod p-range ((from ompa::pattern) &key ub lb by (inclusive nil) for (repeat t) name eop-hook)
-;;   (assert repeat (repeat) "repeat must be set to 't' or a number")
-;;   (let* ((bounded? (or ub lb))
-;; 	 (bounds `(,(if bounded? :from :initially) ,from
-;; 		    ,@(when bounded?
-;; 			(if lb
-;; 			    (list (if inclusive :to :below) ub
-;; 				  (if inclusive :downto :above) lb)
-;; 			    (list (if (< from ub)
-;; 				      (if inclusive :to :below)
-;; 				      (if inclusive :downto :above))
-;; 				  ub)))))
-;; 	 (byform `(,@(cond ((and bounded? by) (list :by by))
-;; 			   ((and (not bounded?) by) (list :stepping by))
-;; 			   (t nil)))))
-;;     `(make-instance 'ompa:range ,@bounds ,@byform
-;;      			  :name ,name :for ,for :eop-hook ,eop-hook :repeat ,repeat)))
-;;
-;;
-;; (next (range 0 :ub 8 :lb -4 :by 2) 20)
-;; (next (range 0 :ub 8 :lb -8 :by (thunk #'(lambda () (nth-random '(-1 1))) ) :for 3) 30)
-;; (next (range 0 :ub 10 :lb -10 :inclusive nil :by (cycle '(1 1 -1)) :for 3) 30)
-;; (next (range 0 :by (cycle '(1 2)) :for 3) 20)
-;; (next (range 0 :ub 12 :lb -12
-;; 	     :by (weighting '((-2 :weight 1.5 :max 3)
-;; 			      ( 2 :weight 1.5 :max 3) 
-;; 			      1
-;; 			      -1
-;; 			      ( 3 :weight .75 :max 1) 
-;; 			      (-3 :weight .75 :max 1))))
-;;       80)
-
 (defmethod! p-range (&key (from 0 from?)
 			  (initially nil initially?)
 			  (to nil to?)
@@ -274,44 +242,56 @@ where element is the value or sub-pattern in the node and is followed by one or 
 			  (above nil above?)
 			  (by nil by?)
 			  (stepping nil stepping?)
-			  for (repeat t) name eop-hook)
+			  for (repeat t)
+			  name
+			  returning
+			  eop-hook)
   :icon pattern-icon
+  :indoc '("from" "initially" "to" "below" "downto" "above" "by" "stepping" "for" "name" "returning" "eop-hook")
   :initvals '(0 nil 1 1 nil)
   :doc "Returns a range pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (eval `(make-instance 'ompa:range
-			,@(when from? `(:from ',from))
-			,@(when initially? `(:initially ',initially))
-			,@(when to? `(:to ',to))
-			,@(when below? `(:below ',below))
-			,@(when downto? `(:downto ',downto))
-			,@(when above? `(:above ',above))
-			,@(when by? `(:by ',by))
-			,@(when stepping? `(:stepping ',stepping))
-			:name ,name :for ,for :eop-hook ,eop-hook :repeat ,repeat)))
+  			,@(when from? `(:from ',from))
+  			,@(when initially? `(:initially ',initially))
+  			,@(when to? `(:to ',to))
+  			,@(when below? `(:below ',below))
+  			,@(when downto? `(:downto ',downto))
+  			,@(when above? `(:above ',above))
+  			,@(when by? `(:by ',by))
+  			,@(when stepping? `(:stepping ',stepping))
+  			:name ,name :for ,for :eop-hook ,eop-hook
+  			:repeat ,repeat
+  			:returning ,returning)))
 
 #|
 
-(setf aaa (p-range :from (p-cycle  '(60 74)) :downto 48 :by (p-cycle '(1 2 3)) :repeat 6))
-(setf aaa (p-range :below 10))
-(p-next aaa 4)
+(setf aaa (p-range :from (p-cycle  '(60 74)) :downto 48 :by (p-cycle '(1 2 3)) :repeat 6 :returning #'(lambda (o) (cons ’a o))))
+
+
+(setf aaa (p-range :below 10 :returning #'(lambda (o) (cons ’a o))))
+(p-next aaa t)
 (p-next (p-range :from 0 :by 1 :for 10) 20)
 
 |#
 
-(defmethod! p-join (of &key format for (repeat t) name eop-hook)
+(defmethod! p-join (of &key format for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "format" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a joiner pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:join :of of :format format
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			    :name name :for for :eop-hook eop-hook :repeat repeat
+			    :returning returning))
 
-(defmethod! p-copier (of &key repeat-for for (repeat t) name eop-hook)
+(defmethod! p-copier (of &key repeat-for for (repeat t) name returning eop-hook)
   :icon pattern-icon
+  :indoc '("of" "repeat-for" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a copier pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
   (make-instance 'ompa:copier :of of :repeat-for repeat-for
-		 :name name :for for :eop-hook eop-hook :repeat repeat))
+			      :name name :for for :eop-hook eop-hook :repeat repeat
+			      :returning returning))
 
 
 

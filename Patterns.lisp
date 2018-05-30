@@ -51,9 +51,13 @@
 ;; (om::addpackage2pack (find-library "PATTERNS") om::*om-package-tree*)
 
 (let ((funcs '(p-next p-eod? p-eop?
-	       p-cycle p-palindrome p-line p-heap p-weighting p-markov p-markov-analyze
-	       p-graph p-accumulation p-thunk p-rotation p-rewrite
-	       p-range p-join p-copier pval
+	       p-cycle p-palindrome p-line p-heap
+	       p-weighting p-w-node
+	       p-markov p-markov-analyze p-transition
+	       p-graph p-graph-node p-accumulation p-thunk p-rotation
+	       p-rewrite p-rewrite-node
+	       p-range p-join p-copier
+	       pval set-pval get-pval
 	       ))
       (p (find-library "PATTERNS")))
   (AddGenFun2Pack funcs p))

@@ -18,49 +18,25 @@
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See
 ;;; http://www.cliki.net/LLGPL for the text of this agreement.
 
-(in-package :om)
 
-(let* ((srcdir (append (pathname-directory *load-pathname*) '("sources")))
-       (pattern-files '("package" "utils" "pattern-classes" "OM-classes")))
-  (mapc #'(lambda (f)
-	    (compile&load (make-pathname :directory srcdir :name f)))
-	pattern-files))
-
-
-(defparameter ompa:*pattern-version* '0.99.4)
-(defparameter ompa:*pattern-date* '2018-05-30)
-
-;; (om::addpackage2pack (find-library "PATTERNS") om::*om-package-tree*)
-
-(let ((funcs '(p-next p-eod? p-eop?
+(:om-lib 
+ (:version 0.994)
+ (:doc "Patterns - a Pattern Stream Library for OM")
+ (:author "Anders Vinjar")
+ (:source-files 
+ 	"sources/package"
+	"sources/utils"
+	"sources/pattern-classes"
+	"sources/OM-classes")
+ (:symbols
+	(:functions p-next p-eod? p-eop?
 	       p-cycle p-palindrome p-line p-heap
 	       p-weighting p-w-node
 	       p-markov p-markov-analyze p-transition
 	       p-graph p-graph-node p-accumulation p-thunk p-rotation
 	       p-rewrite p-rewrite-node
 	       p-range p-join p-copier
-	       pval set-pval get-pval
-	       ))
-      (p (find-library "PATTERNS")))
-  (AddGenFun2Pack funcs p))
+	       pval set-pval get-pval)
+ ))
+ 
 
-
-(set-lib-release ompa:*pattern-version* (find-library "PATTERNS"))
-
-;; (om::addclass2pack '(ompa::pattern) (find-library  "PATTERNS") :protect nil)
-
-
-(print
- (format nil "
-;; ============================================
-;;  Patterns - a Pattern Stream Library for OM
-;;  Version:	~A
-;;  Date:	~A
-;;  Author:	Anders Vinjar
-;; ============================================
-"
-	 ompa:*pattern-version*
-	 ompa:*pattern-date*))
-
-;; generate html doc:
-;; (om::gen-lib-reference (exist-lib-p "Patterns"))

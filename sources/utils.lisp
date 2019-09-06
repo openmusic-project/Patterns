@@ -6,8 +6,6 @@
 
 (in-package :ompa)
 
-(defparameter *pattern-version* '0.99.4)
-(defparameter *pattern-date* '2018-05-30)
 
 (defun quote-if-necessary (x)
   (if (or (numberp x)

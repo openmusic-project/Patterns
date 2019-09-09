@@ -27,8 +27,8 @@
 	pattern-files))
 
 
-(defparameter ompa:*pattern-version* '0.99.4)
-(defparameter ompa:*pattern-date* '2018-05-30)
+(defparameter ompa::*pattern-version* '0.99.4)
+(defparameter ompa::*pattern-date* '2018-05-30)
 
 ;; (om::addpackage2pack (find-library "PATTERNS") om::*om-package-tree*)
 
@@ -45,7 +45,7 @@
   (AddGenFun2Pack funcs p))
 
 
-(set-lib-release ompa:*pattern-version* (find-library "PATTERNS"))
+(set-lib-release ompa::*pattern-version* (find-library "PATTERNS"))
 
 ;; (om::addclass2pack '(ompa::pattern) (find-library  "PATTERNS") :protect nil)
 
@@ -59,8 +59,8 @@
 ;;  Author:	Anders Vinjar
 ;; ============================================
 "
-	 ompa:*pattern-version*
-	 ompa:*pattern-date*))
+	 ompa::*pattern-version*
+	 ompa::*pattern-date*))
 
 ;; generate html doc:
 ;; (om::gen-lib-reference (exist-lib-p "Patterns"))

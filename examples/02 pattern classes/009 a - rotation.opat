@@ -1,0 +1,476 @@
+
+(:patch
+ (:om-version 0.02)
+ (:name "009 a - rotation")
+ (:doc "")
+ (:info
+  (:created "2019/09/09 10:52:54")
+  (:modified "2019/09/09 10:54:05"))
+ (:window (:size (998 619)) (:position (461 460)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 7")
+   (:x 708)
+   (:y 8)
+   (:w 98)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list (:list 0 1 2) (:list 1 1 2)))
+   (:id 0))
+  (:box
+   (:reference p-cycle)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-cycle")
+   (:x 721)
+   (:y 49)
+   (:w 72)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 1))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 8")
+   (:x 628)
+   (:y 80)
+   (:w 64)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list a b c d))
+   (:id 2))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 6")
+   (:x 704)
+   (:y 301)
+   (:w 27)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 5)
+   (:id 3))
+  (:box
+   (:reference symbol)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 2")
+   (:x 690)
+   (:y 192)
+   (:w 23)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value t)
+   (:id 4))
+  (:box
+   (:reference repeat-n)
+   (:type :special)
+   (:group-id nil)
+   (:name "repeat-n")
+   (:x 660)
+   (:y 335)
+   (:w 90)
+   (:h 28)
+   (:color
+    (:color-or-nil (:color (:color 0.82 0.85 0.7 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:icon :left)
+   (:lock nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "program to repeat")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :standard) (:name "n") (:value 4) (:reactive nil)))
+   (:outputs (:output (:name "collected results") (:reactive nil)))
+   (:id 5))
+  (:box
+   (:reference p-next)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-next")
+   (:x 660)
+   (:y 232)
+   (:w 69)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OBJ")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :optional)
+     (:name "num")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 6))
+  (:box
+   (:reference p-rotation)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-rotation")
+   (:x 638)
+   (:y 126)
+   (:w 88)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock :eval-once)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ROTATIONS")
+     (:value (:list 0 1 1))
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 7))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 5")
+   (:x 513)
+   (:y 80)
+   (:w 55)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list 0 1 1))
+   (:id 8))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 544)
+   (:y 301)
+   (:w 27)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 4)
+   (:id 9))
+  (:box
+   (:reference symbol)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 3")
+   (:x 530)
+   (:y 192)
+   (:w 23)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value t)
+   (:id 10))
+  (:box
+   (:reference repeat-n)
+   (:type :special)
+   (:group-id nil)
+   (:name "repeat-n")
+   (:x 500)
+   (:y 335)
+   (:w 90)
+   (:h 28)
+   (:color
+    (:color-or-nil (:color (:color 0.82 0.85 0.7 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:icon :left)
+   (:lock nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "program to repeat")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :standard) (:name "n") (:value 4) (:reactive nil)))
+   (:outputs (:output (:name "collected results") (:reactive nil)))
+   (:id 11))
+  (:box
+   (:reference p-next)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-next")
+   (:x 500)
+   (:y 232)
+   (:w 69)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OBJ")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :optional)
+     (:name "num")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 12))
+  (:box
+   (:reference p-rotation)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-rotation")
+   (:x 485)
+   (:y 126)
+   (:w 88)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock :eval-once)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ROTATIONS")
+     (:value (:list 0 1 1))
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 13))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux")
+   (:x 450)
+   (:y 80)
+   (:w 54)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list a b c))
+   (:id 14))
+  (:comment
+   (:x 25)
+   (:y 80)
+   (:w 389)
+   (:h 480)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "Permutes elements according to one or more rotational
+descriptions. A rotation is a list of (up to) four integers that
+controls an iterative \"swapping\" process that is mapped over all
+the data to produce the next permutation:
+
+    (start step width [end])
+
+Start is the starting index (zero based) in the pattern's data
+for swapping to begin, step is the stepping increment between
+swaps, width is the distance between the elements to swap, and
+end is the position (inclusive) in the data to stop swapping
+at. The default rotation list is (0 1 1), causes elements in the
+pattern to rotate leftward, as shown in Table 1.
+
+Table 1. Permutations of A B C using (0 1 1) as the
+rotation. Lower case letters indicate an intermediate step in the
+rotation and the _ marks the swap at each step.
+
+    Permutation	Swap #1	Swap #2
+    A B C	b_a c	b c_a
+    B C A	c_b a	c a_b
+    C A B	a_c b	a b_c
+    A B C	...
+
+rotation supports the following slot initializations:
+
+:rotations { list | pattern }
+    The rotation list or pattern that produces rotation lists.
+
+See generic pattern initializations for documentation on
+additional keyword initializations to the pattern.")
+   (:id 15))
+  (:comment
+   (:x 92)
+   (:y 24)
+   (:w 92)
+   (:h 38)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 16) (:style :bold)))
+   (:align nil)
+   (:text "rotation")
+   (:id 16)))
+ (:connections
+  (:connection
+   (:from (:box 0 :out 0))
+   (:to (:box 1 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 1 :out 0))
+   (:to (:box 7 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 2 :out 0))
+   (:to (:box 7 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 3 :out 0))
+   (:to (:box 5 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 4 :out 0))
+   (:to (:box 6 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 5 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 0))
+   (:to (:box 6 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 13 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 9 :out 0))
+   (:to (:box 11 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 12 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 12 :out 0))
+   (:to (:box 11 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 13 :out 0))
+   (:to (:box 12 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 14 :out 0))
+   (:to (:box 13 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))))

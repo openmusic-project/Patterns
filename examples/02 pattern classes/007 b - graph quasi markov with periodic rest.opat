@@ -1,0 +1,3185 @@
+
+(:patch
+ (:om-version 0.02)
+ (:name "007 b - graph quasi markov with periodic rest")
+ (:doc "")
+ (:info
+  (:created "2019/09/09 10:52:54")
+  (:modified "2019/09/09 10:54:36"))
+ (:window (:size (653 641)) (:position (440 437)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:comment
+   (:x 278)
+   (:y 240)
+   (:w 331)
+   (:h 38)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 16) (:style :plain)))
+   (:align nil)
+   (:text "A quasi-Markov chant with periodic breath. ")
+   (:id 0))
+  (:comment
+   (:x 301)
+   (:y 346)
+   (:w 164)
+   (:h 60)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "loop collecting notes and 
+rhythms, handling
+pauses along the way")
+   (:id 1))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 496)
+   (:y 442)
+   (:w 34)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 10)
+   (:id 2))
+  (:box
+   (:reference chord-seq)
+   (:type :object)
+   (:group-id nil)
+   (:name "CHORD-SEQ")
+   (:x 94)
+   (:y 486)
+   (:w 462)
+   (:h 105)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CHORD-SEQ")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LMIDIC")
+     (:value (:list 6000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LONSET")
+     (:value (:list 0 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LDUR")
+     (:value (:list 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LVEL")
+     (:value (:list 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "loffset")
+     (:value (:list 0))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "lchan")
+     (:value (:list 1))
+     (:reactive nil))
+    (:input (:type :key) (:name "llegato") (:value 0) (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "LMIDIC") (:reactive nil))
+    (:output (:name "LONSET") (:reactive nil))
+    (:output (:name "LDUR") (:reactive nil))
+    (:output (:name "LVEL") (:reactive nil))
+    (:output (:name "loffset") (:reactive nil))
+    (:output (:name "lchan") (:reactive nil))
+    (:output (:name "llegato") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params (:staff :g))
+   (:value
+    (:object
+     (:class chord-seq)
+     (:slots
+      ((:onset 0)
+       (:duration 11865)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:lmidic
+        (:list
+         (:list 6000)
+         (:list 6900)
+         (:list 6700)
+         (:list 7200)
+         (:list 7000)
+         (:list 6000)
+         (:list 6200)
+         (:list 6300)
+         (:list 6300)
+         (:list 6300)
+         (:list 6300)
+         (:list 7000)
+         (:list 6900)
+         (:list 6700)
+         (:list 7200)
+         (:list 6200)
+         (:list 6300)
+         (:list 6300)
+         (:list 7000)
+         (:list 7200)
+         (:list 6700)
+         (:list 6900)
+         (:list 6300)
+         (:list 6200)
+         (:list 6000)
+         (:list 7200)
+         (:list 6700)
+         (:list 6900)
+         (:list 7000)
+         (:list 6300)
+         (:list 6700)
+         (:list 7000)
+         (:list 6900)
+         (:list 7200)
+         (:list 6000)
+         (:list 6900)
+         (:list 7200)
+         (:list 7000)
+         (:list 6700)
+         (:list 6200)
+         (:list 6000)
+         (:list 7200)
+         (:list 6900)
+         (:list 6700)
+         (:list 7000)
+         (:list 6300)
+         (:list 6300)
+         (:list 6300)
+         (:list 6200)
+         (:list 6300)
+         (:list 6300)
+         (:list 6300)
+         (:list 6200)
+         (:list 6000)
+         (:list 6200)
+         (:list 6300)
+         (:list 6300)
+         (:list 6700)
+         (:list 6900)
+         (:list 7200)
+         (:list 7000)
+         (:list 6300)
+         (:list 6700)
+         (:list 7200)
+         (:list 7000)
+         (:list 6900)
+         (:list 6000)
+         (:list 6200)
+         (:list 6000)
+         (:list 6900)
+         (:list 7000)
+         (:list 7200)
+         (:list 6700)
+         (:list 6200)
+         (:list 6000)))
+       (:lonset
+        (:list
+         0
+         150
+         300
+         450
+         600
+         750
+         900
+         1050
+         1200
+         1350
+         1500
+         1800
+         1950
+         2100
+         2250
+         2400
+         2550
+         2700
+         2850
+         3000
+         3150
+         3300
+         3450
+         3600
+         3750
+         3900
+         4050
+         4200
+         4350
+         4500
+         4650
+         4800
+         4950
+         5100
+         5250
+         5550
+         5700
+         5850
+         6000
+         6150
+         6300
+         6450
+         6600
+         6750
+         6900
+         7050
+         7200
+         7500
+         7650
+         7800
+         7950
+         8100
+         8250
+         8400
+         8550
+         8850
+         9000
+         9150
+         9300
+         9450
+         9600
+         9750
+         9900
+         10050
+         10200
+         10350
+         10500
+         10800
+         10950
+         11100
+         11250
+         11400
+         11550
+         11700
+         11850
+         11865))
+       (:ldur
+        (:list
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 30)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 30)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 30)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 30)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 30)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)
+         (:list 15)))
+       (:lvel
+        (:list
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)
+         (:list 100)))
+       (:loffset
+        (:list
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)))
+       (:lport
+        (:list
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil))
+       (:llegato nil)))
+     (:add-slots
+      ((:loffset
+        (:list
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)))
+       (:lport
+        (:list
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil))
+       (:llegato nil)))))
+   (:id 3))
+  (:box
+   (:reference dx->x)
+   (:type :function)
+   (:group-id nil)
+   (:name "dx->x")
+   (:x 199)
+   (:y 414)
+   (:w 64)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "START")
+     (:value 0)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LIST")
+     (:value (:list 1 1))
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 4))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 3")
+   (:x 200)
+   (:y 314)
+   (:w 41)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 150)
+   (:id 5))
+  (:comment
+   (:x 222)
+   (:y 193)
+   (:w 111)
+   (:h 45)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "include pause at
+regular intervals")
+   (:id 6))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 2")
+   (:x 278)
+   (:y 314)
+   (:w 34)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 80)
+   (:id 7))
+  (:box
+   (:reference
+    (:patch
+     (:om-version 0.02)
+     (:name "OMLOOP")
+     (:doc "")
+     (:info (:created nil) (:modified nil))
+     (:window (:size (904 697)) (:position (125 69)))
+     (:grid nil)
+     (:lock nil)
+     (:boxes
+      (:comment
+       (:x 319)
+       (:y 63)
+       (:w 127)
+       (:h 60)
+       (:fgcolor (:color 0 0 0 1.0))
+       (:bgcolor nil)
+       (:border 0)
+       (:roundness nil)
+       (:text-font
+        (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+       (:align nil)
+       (:text
+        "if it's a pause,
+accumulate rhythm
+value temporarily")
+       (:id 0))
+      (:comment
+       (:x 438)
+       (:y 298)
+       (:w 250)
+       (:h 60)
+       (:fgcolor (:color 0 0 0 1.0))
+       (:bgcolor nil)
+       (:border 0)
+       (:roundness nil)
+       (:text-font
+        (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+       (:align nil)
+       (:text
+        "the 'sequence' makes sure rhythms get
+accumulated as long as there's a 'pause'
+returned in the note pattern")
+       (:id 1))
+      (:comment
+       (:x 367)
+       (:y 559)
+       (:w 100)
+       (:h 60)
+       (:fgcolor (:color 0 0 0 1.0))
+       (:bgcolor nil)
+       (:border 0)
+       (:roundness nil)
+       (:text-font
+        (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+       (:align nil)
+       (:text
+        "return: two lists:
+ - notes
+ - rhythms")
+       (:id 2))
+      (:box
+       (:reference symbol)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 4")
+       (:x 209)
+       (:y 413)
+       (:w 47)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value pause)
+       (:id 3))
+      (:box
+       (:reference delete)
+       (:type :function)
+       (:group-id nil)
+       (:name "delete")
+       (:x 238)
+       (:y 464)
+       (:w 69)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ITEM")
+         (:value pause)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "SEQUENCE")
+         (:value x)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 4))
+      (:box
+       (:reference symbol)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 3")
+       (:x 290)
+       (:y 413)
+       (:w 47)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value pause)
+       (:id 5))
+      (:box
+       (:reference delete)
+       (:type :function)
+       (:group-id nil)
+       (:name "delete")
+       (:x 346)
+       (:y 464)
+       (:w 69)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ITEM")
+         (:value pause)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "SEQUENCE")
+         (:value x)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 6))
+      (:box
+       (:reference cdr)
+       (:type :function)
+       (:group-id nil)
+       (:name "cdr")
+       (:x 361)
+       (:y 413)
+       (:w 54)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "X")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 7))
+      (:box
+       (:reference seq)
+       (:type :function)
+       (:group-id nil)
+       (:name "seq")
+       (:x 349)
+       (:y 169)
+       (:w 97)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OP")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "op+")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "out") (:reactive nil))
+        (:output (:name "op+1") (:reactive nil)))
+       (:id 8))
+      (:box
+       (:reference collect)
+       (:type :special)
+       (:group-id nil)
+       (:name "collect")
+       (:x 360)
+       (:y 298)
+       (:w 57)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 0.82 0.7 0.7 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "data-in")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "push")
+         (:value t)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "init")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "collect") (:reactive nil))
+        (:output (:name "data-out") (:reactive nil))
+        (:output (:name "init") (:reactive nil)))
+       (:id 9))
+      (:box
+       (:reference seq)
+       (:type :function)
+       (:group-id nil)
+       (:name "seq")
+       (:x 438)
+       (:y 201)
+       (:w 97)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OP")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "op+")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "op+")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "out") (:reactive nil))
+        (:output (:name "op+1") (:reactive nil))
+        (:output (:name "op+2") (:reactive nil)))
+       (:id 10))
+      (:box
+       (:reference accum)
+       (:type :special)
+       (:group-id nil)
+       (:name "accum")
+       (:x 438)
+       (:y 125)
+       (:w 88)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 0.82 0.7 0.7 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "data-in")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "accum-function")
+         (:value om+)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "init")
+         (:value 0)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "collect") (:reactive nil))
+        (:output (:name "data-out") (:reactive nil))
+        (:output (:name "init") (:reactive nil)))
+       (:id 11))
+      (:box
+       (:reference symbol)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 2")
+       (:x 239)
+       (:y 169)
+       (:w 47)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value pause)
+       (:id 12))
+      (:box
+       (:reference equal)
+       (:type :function)
+       (:group-id nil)
+       (:name "equal")
+       (:x 217)
+       (:y 201)
+       (:w 65)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "X")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "Y")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 13))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux")
+       (:x 552)
+       (:y 62)
+       (:w 32)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 1)
+       (:id 14))
+      (:comment
+       (:x 623)
+       (:y 62)
+       (:w 62)
+       (:h 60)
+       (:fgcolor (:color 0 0 0 1.0))
+       (:bgcolor nil)
+       (:border 0)
+       (:roundness nil)
+       (:text-font
+        (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+       (:align nil)
+       (:text
+        "iteration
+control
+only")
+       (:id 15))
+      (:box
+       (:reference p-next)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-next")
+       (:x 103)
+       (:y 65)
+       (:w 69)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock :eval-once)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OBJ")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 16))
+      (:box
+       (:reference omif)
+       (:type :function)
+       (:group-id nil)
+       (:name "omif")
+       (:x 165)
+       (:y 238)
+       (:w 427)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "TEST")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "ACTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "else")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 17))
+      (:box
+       (:reference collect)
+       (:type :special)
+       (:group-id nil)
+       (:name "collect")
+       (:x 104)
+       (:y 238)
+       (:w 57)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 0.82 0.7 0.7 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "data-in")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "push")
+         (:value t)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "init")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "collect") (:reactive nil))
+        (:output (:name "data-out") (:reactive nil))
+        (:output (:name "init") (:reactive nil)))
+       (:id 18))
+      (:box
+       (:reference iterate)
+       (:type :special)
+       (:group-id nil)
+       (:name "iterate")
+       (:x 106)
+       (:y 452)
+       (:w 57)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 0.82 0.85 0.7 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "action")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "action")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "action")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 19))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "pattern") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "pattern")
+       (:x 106)
+       (:y 5)
+       (:w 62)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 20))
+      (:box
+       (:reference loop-for)
+       (:type :special)
+       (:group-id nil)
+       (:name "for")
+       (:x 558)
+       (:y 80)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 0.82 0.85 0.7 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "from")
+         (:value 0)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "to")
+         (:value 10)
+         (:reactive nil)))
+       (:outputs (:output (:name "i") (:reactive nil)))
+       (:id 21))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "rate") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "rate")
+       (:x 482)
+       (:y 20)
+       (:w 44)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 22))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "output 1") (:index 1) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "output 1")
+       (:x 269)
+       (:y 559)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 23))
+      (:box
+       (:reference (:in (:type omin) (:index 3) (:name "n") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "n")
+       (:x 579)
+       (:y 20)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 24))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "output 2") (:index 2) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "output 2")
+       (:x 342)
+       (:y 515)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 25)))
+     (:connections
+      (:connection
+       (:from (:box 3 :out 0))
+       (:to (:box 4 :in 0))
+       (:attributes
+        (:color (:color 1.0 0.0 0.0 1.0) :style nil :modif nil)))
+      (:connection
+       (:from (:box 4 :out 0))
+       (:to (:box 23 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 0))
+       (:to (:box 6 :in 0))
+       (:attributes
+        (:color (:color 1.0 0.0 0.0 1.0) :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 0))
+       (:to (:box 25 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 6 :in 1))
+       (:attributes
+        (:color (:color 0.0 0.0 1.0 1.0) :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 0))
+       (:to (:box 17 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 19 :in 1))
+       (:attributes
+        (:color (:color 0.0 0.0 1.0 1.0) :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 1))
+       (:to (:box 7 :in 0))
+       (:attributes
+        (:color (:color 0.0 0.0 1.0 1.0) :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 1))
+       (:to (:box 17 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
+       (:to (:box 8 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
+       (:to (:box 10 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 1))
+       (:to (:box 10 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 2))
+       (:to (:box 10 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 12 :out 0))
+       (:to (:box 13 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 13 :out 0))
+       (:to (:box 17 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 21 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 8 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 13 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 18 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 17 :out 0))
+       (:to (:box 9 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 18 :out 0))
+       (:to (:box 19 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 18 :out 1))
+       (:to (:box 4 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 20 :out 0))
+       (:to (:box 16 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 21 :out 0))
+       (:to (:box 19 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 22 :out 0))
+       (:to (:box 11 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 24 :out 0))
+       (:to (:box 21 :in 1))
+       (:attributes (:color nil :style nil :modif nil))))))
+   (:type :patch)
+   (:group-id nil)
+   (:name "OMLOOP")
+   (:x 165)
+   (:y 346)
+   (:w 110)
+   (:h 60)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:group-id nil)
+   (:lock :eval-once)
+   (:lambda nil)
+   (:pre-delay 0)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "pattern")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "rate")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "n")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "output 1") (:reactive nil))
+    (:output (:name "output 2") (:reactive nil)))
+   (:id 8))
+  (:box
+   (:reference symbol)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux")
+   (:x 278)
+   (:y 658/5)
+   (:w 55)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value pause)
+   (:id 9))
+  (:box
+   (:reference list)
+   (:type :function)
+   (:group-id nil)
+   (:name "list")
+   (:x 5393/30)
+   (:y 161)
+   (:w 52)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input (:type :optional) (:name "x") (:value a) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value b) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 10))
+  (:box
+   (:reference p-cycle)
+   (:type :function)
+   (:group-id nil)
+   (:name "p-cycle")
+   (:x 165)
+   (:y 240)
+   (:w 72)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 11))
+  (:box
+   (:reference
+    (:patch
+     (:om-version 0.02)
+     (:name "set up graph pattern of notes")
+     (:doc "")
+     (:info (:created nil) (:modified nil))
+     (:window (:size nil) (:position nil))
+     (:grid nil)
+     (:lock nil)
+     (:boxes
+      (:box
+       (:reference list)
+       (:type :function)
+       (:group-id nil)
+       (:name "list")
+       (:x 270)
+       (:y 356)
+       (:w 489)
+       (:h nil)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :optional)
+         (:name "x")
+         (:value a)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "x")
+         (:value b)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "x")
+         (:value c)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "x")
+         (:value d)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "x")
+         (:value e)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 5")
+       (:x 809)
+       (:y 115)
+       (:w 65)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 1 2 3 4))
+       (:id 1))
+      (:box
+       (:reference p-cycle)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-cycle")
+       (:x 817)
+       (:y 155)
+       (:w 72)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 10")
+       (:x 659)
+       (:y 110)
+       (:w 45)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 3 5))
+       (:id 3))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 11")
+       (:x 645)
+       (:y 231)
+       (:w 27)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 4)
+       (:id 4))
+      (:box
+       (:reference note)
+       (:type :object)
+       (:group-id nil)
+       (:name "NOTE 2")
+       (:x 582)
+       (:y 155)
+       (:w 60)
+       (:h 60)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:name "NOTE 2")
+       (:display :mini-view)
+       (:showname nil)
+       (:group-id nil)
+       (:lock :locked)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "MIDIC")
+         (:value 6000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "VEL")
+         (:value 80)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "DUR")
+         (:value 1000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "CHAN")
+         (:value 1)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "SELF") (:reactive nil))
+        (:output (:name "MIDIC") (:reactive nil))
+        (:output (:name "VEL") (:reactive nil))
+        (:output (:name "DUR") (:reactive nil))
+        (:output (:name "CHAN") (:reactive nil)))
+       (:window (:size nil) (:position nil))
+       (:edition-params (:staff :g))
+       (:value
+        (:object
+         (:class note)
+         (:slots
+          ((:symbolic-date nil)
+           (:symbolic-dur nil)
+           (:symbolic-dur-extent 0)
+           (:midic 6300)
+           (:vel 80)
+           (:dur 1000)
+           (:chan 1)
+           (:port nil)
+           (:offset 0)))
+         (:add-slots ((:port nil)))))
+       (:id 5))
+      (:box
+       (:reference p-graph-node)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph-node")
+       (:x 617)
+       (:y 265)
+       (:w 105)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ELEMENT")
+         (:value nil)
+         (:reactive nil))
+        (:input (:type :key) (:name "id") (:value nil) (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "to")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 6))
+      (:box
+       (:reference p-weighting)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-weighting")
+       (:x 643)
+       (:y 156)
+       (:w 96)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value (:list 2 5))
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 7))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 9")
+       (:x 795)
+       (:y 231)
+       (:w 27)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 5)
+       (:id 8))
+      (:box
+       (:reference note)
+       (:type :object)
+       (:group-id nil)
+       (:name "NOTE")
+       (:x 442)
+       (:y 155)
+       (:w 60)
+       (:h 60)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:name "NOTE")
+       (:display :mini-view)
+       (:showname nil)
+       (:group-id nil)
+       (:lock :locked)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "MIDIC")
+         (:value 6000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "VEL")
+         (:value 80)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "DUR")
+         (:value 1000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "CHAN")
+         (:value 1)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "SELF") (:reactive nil))
+        (:output (:name "MIDIC") (:reactive nil))
+        (:output (:name "VEL") (:reactive nil))
+        (:output (:name "DUR") (:reactive nil))
+        (:output (:name "CHAN") (:reactive nil)))
+       (:window (:size nil) (:position nil))
+       (:edition-params (:staff :g))
+       (:value
+        (:object
+         (:class note)
+         (:slots
+          ((:symbolic-date nil)
+           (:symbolic-dur nil)
+           (:symbolic-dur-extent 0)
+           (:midic 6300)
+           (:vel 80)
+           (:dur 1000)
+           (:chan 1)
+           (:port nil)
+           (:offset 0)))
+         (:add-slots ((:port nil)))))
+       (:id 9))
+      (:box
+       (:reference note)
+       (:type :object)
+       (:group-id nil)
+       (:name "NOTE")
+       (:x 308)
+       (:y 154)
+       (:w 60)
+       (:h 60)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:name "NOTE")
+       (:display :mini-view)
+       (:showname nil)
+       (:group-id nil)
+       (:lock :locked)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "MIDIC")
+         (:value 6000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "VEL")
+         (:value 80)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "DUR")
+         (:value 1000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "CHAN")
+         (:value 1)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "SELF") (:reactive nil))
+        (:output (:name "MIDIC") (:reactive nil))
+        (:output (:name "VEL") (:reactive nil))
+        (:output (:name "DUR") (:reactive nil))
+        (:output (:name "CHAN") (:reactive nil)))
+       (:window (:size nil) (:position nil))
+       (:edition-params (:staff :g))
+       (:value
+        (:object
+         (:class note)
+         (:slots
+          ((:symbolic-date nil)
+           (:symbolic-dur nil)
+           (:symbolic-dur-extent 0)
+           (:midic 6200)
+           (:vel 80)
+           (:dur 1000)
+           (:chan 1)
+           (:port nil)
+           (:offset 0)))
+         (:add-slots ((:port nil)))))
+       (:id 10))
+      (:box
+       (:reference note)
+       (:type :object)
+       (:group-id nil)
+       (:name "NOTE")
+       (:x 158)
+       (:y 154)
+       (:w 60)
+       (:h 60)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:name "NOTE")
+       (:display :mini-view)
+       (:showname nil)
+       (:group-id nil)
+       (:lock :locked)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "MIDIC")
+         (:value 6000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "VEL")
+         (:value 80)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "DUR")
+         (:value 1000)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "CHAN")
+         (:value 1)
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "SELF") (:reactive nil))
+        (:output (:name "MIDIC") (:reactive nil))
+        (:output (:name "VEL") (:reactive nil))
+        (:output (:name "DUR") (:reactive nil))
+        (:output (:name "CHAN") (:reactive nil)))
+       (:window (:size nil) (:position nil))
+       (:edition-params (:staff :g))
+       (:value
+        (:object
+         (:class note)
+         (:slots
+          ((:symbolic-date nil)
+           (:symbolic-dur nil)
+           (:symbolic-dur-extent 0)
+           (:midic 6000)
+           (:vel 80)
+           (:dur 1000)
+           (:chan 1)
+           (:port nil)
+           (:offset 0)))
+         (:add-slots ((:port nil)))))
+       (:id 11))
+      (:box
+       (:reference chord)
+       (:type :object)
+       (:group-id nil)
+       (:name "CHORD")
+       (:x 727)
+       (:y 50)
+       (:w 60)
+       (:h 90)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:name "CHORD")
+       (:display :mini-view)
+       (:showname nil)
+       (:group-id nil)
+       (:lock :locked)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LMIDIC")
+         (:value (:list 6000))
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LVEL")
+         (:value (:list 100))
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LOFFSET")
+         (:value (:list 0))
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LDUR")
+         (:value (:list 1000))
+         (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "lchan")
+         (:value (:list 1))
+         (:reactive nil)))
+       (:outputs
+        (:output (:name "SELF") (:reactive nil))
+        (:output (:name "LMIDIC") (:reactive nil))
+        (:output (:name "LVEL") (:reactive nil))
+        (:output (:name "LOFFSET") (:reactive nil))
+        (:output (:name "LDUR") (:reactive nil))
+        (:output (:name "lchan") (:reactive nil)))
+       (:window (:size nil) (:position nil))
+       (:edition-params (:staff :g))
+       (:value
+        (:object
+         (:class chord)
+         (:slots
+          ((:symbolic-date nil)
+           (:symbolic-dur nil)
+           (:symbolic-dur-extent 0)
+           (:onset 0)
+           (:item-time nil)
+           (:item-internal-time nil)
+           (:item-type nil)
+           (:attributes nil)
+           (:lmidic (:list 6700 6900 7000 7200))
+           (:lvel (:list 100 100 100 100))
+           (:loffset (:list 0 0 0 0))
+           (:ldur (:list 1000 1000 1000 1000))
+           (:lchan (:list 1 1 1 1))
+           (:lport nil)
+           (:notes
+            (:list
+             (:object
+              (:class note)
+              (:slots
+               ((:symbolic-date nil)
+                (:symbolic-dur nil)
+                (:symbolic-dur-extent 0)
+                (:midic 6700)
+                (:vel 100)
+                (:dur 1000)
+                (:chan 1)
+                (:port nil)
+                (:offset 0)))
+              (:add-slots ((:port nil))))
+             (:object
+              (:class note)
+              (:slots
+               ((:symbolic-date nil)
+                (:symbolic-dur nil)
+                (:symbolic-dur-extent 0)
+                (:midic 6900)
+                (:vel 100)
+                (:dur 1000)
+                (:chan 1)
+                (:port nil)
+                (:offset 0)))
+              (:add-slots ((:port nil))))
+             (:object
+              (:class note)
+              (:slots
+               ((:symbolic-date nil)
+                (:symbolic-dur nil)
+                (:symbolic-dur-extent 0)
+                (:midic 7000)
+                (:vel 100)
+                (:dur 1000)
+                (:chan 1)
+                (:port nil)
+                (:offset 0)))
+              (:add-slots ((:port nil))))
+             (:object
+              (:class note)
+              (:slots
+               ((:symbolic-date nil)
+                (:symbolic-dur nil)
+                (:symbolic-dur-extent 0)
+                (:midic 7200)
+                (:vel 100)
+                (:dur 1000)
+                (:chan 1)
+                (:port nil)
+                (:offset 0)))
+              (:add-slots ((:port nil))))))))
+         (:add-slots
+          ((:onset 0) (:lchan (:list 1 1 1 1)) (:lport nil)))))
+       (:id 12))
+      (:box
+       (:reference p-heap)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-heap")
+       (:x 740)
+       (:y 144)
+       (:w 72)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 13))
+      (:box
+       (:reference p-graph)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph")
+       (:x 116)
+       (:y 407)
+       (:w 76)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "for")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 14))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 8")
+       (:x 505)
+       (:y 231)
+       (:w 27)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 3)
+       (:id 15))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 7")
+       (:x 365)
+       (:y 231)
+       (:w 27)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 2)
+       (:id 16))
+      (:box
+       (:reference p-graph-node)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph-node")
+       (:x 767)
+       (:y 265)
+       (:w 105)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ELEMENT")
+         (:value nil)
+         (:reactive nil))
+        (:input (:type :key) (:name "id") (:value nil) (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "to")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 17))
+      (:box
+       (:reference p-graph-node)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph-node")
+       (:x 477)
+       (:y 265)
+       (:w 105)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ELEMENT")
+         (:value nil)
+         (:reactive nil))
+        (:input (:type :key) (:name "id") (:value nil) (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "to")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 18))
+      (:box
+       (:reference p-graph-node)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph-node")
+       (:x 337)
+       (:y 265)
+       (:w 105)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ELEMENT")
+         (:value nil)
+         (:reactive nil))
+        (:input (:type :key) (:name "id") (:value nil) (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "to")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 19))
+      (:box
+       (:reference p-graph-node)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-graph-node")
+       (:x 187)
+       (:y 265)
+       (:w 105)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ELEMENT")
+         (:value nil)
+         (:reactive nil))
+        (:input (:type :key) (:name "id") (:value nil) (:reactive nil))
+        (:input
+         (:type :key)
+         (:name "to")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 20))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 6")
+       (:x 215)
+       (:y 231)
+       (:w 27)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 1)
+       (:id 21))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 4")
+       (:x 519)
+       (:y 110)
+       (:w 45)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 2 4))
+       (:id 22))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 3")
+       (:x 379)
+       (:y 110)
+       (:w 45)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 1 3))
+       (:id 23))
+      (:box
+       (:reference p-weighting)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-weighting")
+       (:x 503)
+       (:y 156)
+       (:w 96)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value (:list 2 5))
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 24))
+      (:box
+       (:reference p-weighting)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-weighting")
+       (:x 363)
+       (:y 156)
+       (:w 96)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value (:list 2 5))
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 25))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 2")
+       (:x 229)
+       (:y 110)
+       (:w 45)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 2 5))
+       (:id 26))
+      (:box
+       (:reference p-weighting)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-weighting")
+       (:x 213)
+       (:y 156)
+       (:w 96)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value (:list 2 5))
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 27))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux")
+       (:x 50)
+       (:y 137)
+       (:w 62)
+       (:h 32)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list 6 8 12))
+       (:id 28))
+      (:box
+       (:reference p-heap)
+       (:type :function)
+       (:group-id nil)
+       (:name "p-heap")
+       (:x 56)
+       (:y 182)
+       (:w 72)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "OF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 29))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "output") (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name "output")
+       (:x 74)
+       (:y 506)
+       (:w 58)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 30)))
+     (:connections
+      (:connection
+       (:from (:box 0 :out 0))
+       (:to (:box 14 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 1 :out 0))
+       (:to (:box 2 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 2 :out 0))
+       (:to (:box 17 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 3 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 4 :out 0))
+       (:to (:box 6 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 1))
+       (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 0))
+       (:to (:box 0 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 6 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 0))
+       (:to (:box 17 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 1))
+       (:to (:box 18 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 1))
+       (:to (:box 19 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 1))
+       (:to (:box 20 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 12 :out 1))
+       (:to (:box 13 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 13 :out 0))
+       (:to (:box 17 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 30 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 15 :out 0))
+       (:to (:box 18 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 19 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 17 :out 0))
+       (:to (:box 0 :in 4))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 18 :out 0))
+       (:to (:box 0 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 19 :out 0))
+       (:to (:box 0 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 20 :out 0))
+       (:to (:box 0 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 21 :out 0))
+       (:to (:box 20 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 22 :out 0))
+       (:to (:box 24 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 23 :out 0))
+       (:to (:box 25 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 24 :out 0))
+       (:to (:box 18 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 25 :out 0))
+       (:to (:box 19 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 26 :out 0))
+       (:to (:box 27 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 27 :out 0))
+       (:to (:box 20 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 28 :out 0))
+       (:to (:box 29 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 29 :out 0))
+       (:to (:box 14 :in 1))
+       (:attributes (:color nil :style nil :modif nil))))))
+   (:type :patch)
+   (:group-id nil)
+   (:name "set up graph pattern of notes")
+   (:x 103)
+   (:y 408/5)
+   (:w 181)
+   (:h 48)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:pre-delay 0)
+   (:inputs)
+   (:outputs (:output (:name "output") (:reactive nil)))
+   (:id 12)))
+ (:connections
+  (:connection
+   (:from (:box 2 :out 0))
+   (:to (:box 3 :in 7))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 4 :out 0))
+   (:to (:box 3 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 8 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 0))
+   (:to (:box 8 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 3 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 1))
+   (:to (:box 4 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 9 :out 0))
+   (:to (:box 10 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 11 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 8 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 12 :out 0))
+   (:to (:box 10 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))))

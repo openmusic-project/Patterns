@@ -5,12 +5,13 @@
  (:doc "")
  (:info
   (:created "2019/09/09 10:50:11")
-  (:modified "2019/09/09 10:52:17"))
- (:window (:size (949 277)) (:position (481 505)))
+  (:modified "2019/09/10 9:48:18"))
+ (:window (:size (949 277)) (:position (462 473)))
  (:grid nil)
  (:lock nil)
  (:boxes
   (:box
+   (:library "Patterns")
    (:reference pval)
    (:type :function)
    (:group-id nil)
@@ -77,6 +78,7 @@
    (:text "merges patterns together into a single stream of data")
    (:id 3))
   (:box
+   (:library "Patterns")
    (:reference p-join)
    (:type :function)
    (:group-id nil)
@@ -115,6 +117,7 @@
    (:text "iterates numbers in a range")
    (:id 5))
   (:box
+   (:library "Patterns")
    (:reference p-range)
    (:type :function)
    (:group-id nil)
@@ -149,6 +152,7 @@
    (:text "copies and repeats periods of a sub-pattern")
    (:id 7))
   (:box
+   (:library "Patterns")
    (:reference p-copier)
    (:type :function)
    (:group-id nil)

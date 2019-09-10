@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/09/09 10:52:53")
-  (:modified "2019/09/09 10:56:15"))
+  (:modified "2019/09/10 9:50:03"))
  (:window (:size (1009 647)) (:position (377 368)))
  (:grid nil)
  (:lock nil)
@@ -296,7 +296,7 @@
         (:output (:name "loffset") (:reactive nil))
         (:output (:name "lchan") (:reactive nil))
         (:output (:name "llegato") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params (:staff :g))
        (:value
         (:object
@@ -962,13 +962,8 @@
        (:lock nil)
        (:lambda :lambda)
        (:pre-delay 0)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "input")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs (:output (:name "output") (:reactive nil)))
+       (:inputs)
+       (:outputs (:output (:name nil) (:reactive nil)))
        (:id 9))
       (:box
        (:reference mapcar)
@@ -1022,6 +1017,7 @@
        (:value 60)
        (:id 11))
       (:box
+       (:library "Patterns")
        (:reference p-next)
        (:type :function)
        (:group-id nil)
@@ -1073,6 +1069,7 @@
        (:value (:list h e.))
        (:id 13))
       (:box
+       (:library "Patterns")
        (:reference p-markov)
        (:type :function)
        (:group-id nil)
@@ -1163,7 +1160,7 @@
         (:output (:name "SELF") (:reactive nil))
         (:output (:name "CONTENTS") (:reactive nil))
         (:output (:name "output-mode") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params (:output-mode :value))
        (:value
         (:object
@@ -1355,7 +1352,7 @@
         (:output (:name "loffset") (:reactive nil))
         (:output (:name "lchan") (:reactive nil))
         (:output (:name "llegato") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params (:staff :g))
        (:value
         (:object
@@ -2039,6 +2036,7 @@
        (:outputs (:output (:name "out") (:reactive nil)))
        (:id 2))
       (:box
+       (:library "Patterns")
        (:reference p-next)
        (:type :function)
        (:group-id nil)
@@ -2068,6 +2066,7 @@
        (:outputs (:output (:name "out") (:reactive nil)))
        (:id 3))
       (:box
+       (:library "Patterns")
        (:reference p-markov)
        (:type :function)
        (:group-id nil)
@@ -2131,7 +2130,7 @@
         (:output (:name "SELF") (:reactive nil))
         (:output (:name "CONTENTS") (:reactive nil))
         (:output (:name "output-mode") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params (:output-mode :list))
        (:value
         (:object
@@ -2238,6 +2237,7 @@ a rule for a markov pattern
 (p-transition lhs rhs)")
    (:id 3))
   (:box
+   (:library "Patterns")
    (:reference p-transition)
    (:type :function)
    (:group-id nil)
@@ -2327,6 +2327,7 @@ a rule for a markov pattern
    (:value (:list a b))
    (:id 7))
   (:box
+   (:library "Patterns")
    (:reference p-transition)
    (:type :function)
    (:group-id nil)
@@ -2356,6 +2357,7 @@ a rule for a markov pattern
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 8))
   (:box
+   (:library "Patterns")
    (:reference p-markov)
    (:type :function)
    (:group-id nil)
@@ -2380,6 +2382,7 @@ a rule for a markov pattern
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 9))
   (:box
+   (:library "Patterns")
    (:reference p-next)
    (:type :function)
    (:group-id nil)
@@ -2431,6 +2434,7 @@ a rule for a markov pattern
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 11))
   (:box
+   (:library "Patterns")
    (:reference p-transition)
    (:type :function)
    (:group-id nil)
@@ -2460,6 +2464,7 @@ a rule for a markov pattern
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 12))
   (:box
+   (:library "Patterns")
    (:reference p-transition)
    (:type :function)
    (:group-id nil)

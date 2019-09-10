@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/09/09 10:50:12")
-  (:modified "2019/09/09 10:50:24"))
+  (:modified "2019/09/10 9:48:10"))
  (:window (:size (1054 549)) (:position (146 115)))
  (:grid nil)
  (:lock nil)
@@ -25,6 +25,7 @@
    (:text "generates elements by rewrite rules")
    (:id 0))
   (:box
+   (:library "Patterns")
    (:reference p-rewrite)
    (:type :function)
    (:group-id nil)
@@ -63,6 +64,7 @@
    (:text "returns systematic permutations of its elements")
    (:id 2))
   (:box
+   (:library "Patterns")
    (:reference p-rotation)
    (:type :function)
    (:group-id nil)
@@ -106,6 +108,7 @@
    (:text "computes elements by function call")
    (:id 4))
   (:box
+   (:library "Patterns")
    (:reference p-thunk)
    (:type :function)
    (:group-id nil)
@@ -144,6 +147,7 @@
    (:text "generates elements from a directed graph")
    (:id 6))
   (:box
+   (:library "Patterns")
    (:reference p-graph)
    (:type :function)
    (:group-id nil)
@@ -182,6 +186,7 @@
    (:text "returns nth order Markov chains of its elements")
    (:id 8))
   (:box
+   (:library "Patterns")
    (:reference p-markov)
    (:type :function)
    (:group-id nil)
@@ -220,6 +225,7 @@
    (:text "selects elements from a weighted distribution")
    (:id 10))
   (:box
+   (:library "Patterns")
    (:reference p-weighting)
    (:type :function)
    (:group-id nil)
@@ -258,6 +264,7 @@
    (:text "randomly permutes elements")
    (:id 12))
   (:box
+   (:library "Patterns")
    (:reference p-heap)
    (:type :function)
    (:group-id nil)
@@ -310,6 +317,7 @@
    (:text "generates elements forwards and backwards")
    (:id 15))
   (:box
+   (:library "Patterns")
    (:reference p-palindrome)
    (:type :function)
    (:group-id nil)
@@ -339,6 +347,7 @@
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 16))
   (:box
+   (:library "Patterns")
    (:reference p-line)
    (:type :function)
    (:group-id nil)
@@ -391,6 +400,7 @@
    (:text "loops over elements in a continuous cycle")
    (:id 19))
   (:box
+   (:library "Patterns")
    (:reference p-cycle)
    (:type :function)
    (:group-id nil)

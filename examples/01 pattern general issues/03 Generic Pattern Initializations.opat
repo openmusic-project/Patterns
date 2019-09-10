@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/09/09 10:50:11")
-  (:modified "2019/09/09 10:50:53"))
+  (:modified "2019/09/10 9:47:22"))
  (:window (:size (825 595)) (:position (484 271)))
  (:grid nil)
  (:lock nil)
@@ -26,6 +26,7 @@
     "All pattern classes accept these arguments {of &key for repeat name returning eop-hook}")
    (:id 0))
   (:box
+   (:library "Patterns")
    (:reference p-cycle)
    (:type :function)
    (:group-id nil)

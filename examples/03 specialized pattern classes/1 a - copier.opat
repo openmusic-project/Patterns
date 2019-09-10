@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/09/09 11:21:52")
-  (:modified "2019/09/09 11:26:10"))
+  (:modified "2019/09/10 9:51:33"))
  (:window (:size (934 623)) (:position (125 46)))
  (:grid nil)
  (:lock nil)
@@ -99,6 +99,7 @@
    (:value t)
    (:id 4))
   (:box
+   (:library "Patterns")
    (:reference p-next)
    (:type :function)
    (:group-id nil)
@@ -170,6 +171,7 @@
    (:outputs (:output (:name "collected results") (:reactive nil)))
    (:id 7))
   (:box
+   (:library "Patterns")
    (:reference p-copier)
    (:type :function)
    (:group-id nil)
@@ -219,6 +221,7 @@
    (:value 2)
    (:id 9))
   (:box
+   (:library "Patterns")
    (:reference p-cycle)
    (:type :function)
    (:group-id nil)
@@ -284,6 +287,7 @@
    (:value t)
    (:id 12))
   (:box
+   (:library "Patterns")
    (:reference p-next)
    (:type :function)
    (:group-id nil)
@@ -375,6 +379,7 @@
    (:value 3)
    (:id 16))
   (:box
+   (:library "Patterns")
    (:reference p-copier)
    (:type :function)
    (:group-id nil)
@@ -440,6 +445,7 @@
    (:value (:list a b c))
    (:id 19))
   (:box
+   (:library "Patterns")
    (:reference p-cycle)
    (:type :function)
    (:group-id nil)

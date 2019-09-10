@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/09/09 11:21:52")
-  (:modified "2019/09/09 11:37:47"))
+  (:modified "2019/09/10 9:51:44"))
  (:window (:size (813 731)) (:position (104 23)))
  (:grid nil)
  (:lock nil)
@@ -117,7 +117,7 @@
     (:output (:name "loffset") (:reactive nil))
     (:output (:name "lchan") (:reactive nil))
     (:output (:name "llegato") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params (:staff :g))
    (:value
     (:object
@@ -986,6 +986,77 @@
      (:lock nil)
      (:boxes
       (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "pattern") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "pattern")
+       (:x 77)
+       (:y 39)
+       (:w 62)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "n (reps)") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "n (reps)")
+       (:x 235)
+       (:y 57)
+       (:w 63)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 1))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "output 1") (:index 1) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "output 1")
+       (:x 137)
+       (:y 351)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 2))
+      (:box
        (:reference fixnum)
        (:type :value)
        (:group-id nil)
@@ -1006,7 +1077,7 @@
        (:inputs)
        (:outputs (:output (:name "value") (:reactive nil)))
        (:value 100)
-       (:id 0))
+       (:id 3))
       (:box
        (:reference om*)
        (:type :function)
@@ -1035,7 +1106,7 @@
          (:value 100)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 1))
+       (:id 4))
       (:box
        (:reference collect)
        (:type :special)
@@ -1074,8 +1145,9 @@
         (:output (:name "collect") (:reactive nil))
         (:output (:name "data-out") (:reactive nil))
         (:output (:name "init") (:reactive nil)))
-       (:id 2))
+       (:id 5))
       (:box
+       (:library "Patterns")
        (:reference p-next)
        (:type :function)
        (:group-id nil)
@@ -1098,7 +1170,7 @@
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 3))
+       (:id 6))
       (:box
        (:reference fixnum)
        (:type :value)
@@ -1120,7 +1192,7 @@
        (:inputs)
        (:outputs (:output (:name "value") (:reactive nil)))
        (:value 1)
-       (:id 4))
+       (:id 7))
       (:box
        (:reference iterate)
        (:type :special)
@@ -1151,29 +1223,7 @@
          (:value nil)
          (:reactive nil)))
        (:outputs)
-       (:id 5))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "pattern") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "pattern")
-       (:x 77)
-       (:y 39)
-       (:w 62)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 6))
+       (:id 8))
       (:box
        (:reference loop-for)
        (:type :special)
@@ -1204,92 +1254,43 @@
          (:value 10)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 7))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 2) (:name "n (reps)") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "n (reps)")
-       (:x 235)
-       (:y 57)
-       (:w 63)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 8))
-      (:box
-       (:reference
-        (:out (:type omout) (:name "output 1") (:index 1) (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "output 1")
-       (:x 137)
-       (:y 351)
-       (:w 68)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
        (:id 9)))
      (:connections
       (:connection
        (:from (:box 0 :out 0))
-       (:to (:box 1 :in 1))
+       (:to (:box 6 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 1 :out 0))
-       (:to (:box 2 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 2 :out 0))
-       (:to (:box 5 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 2 :out 1))
-       (:to (:box 9 :in 0))
+       (:to (:box 9 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 3 :out 0))
-       (:to (:box 1 :in 0))
+       (:to (:box 4 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 4 :out 0))
-       (:to (:box 7 :in 0))
+       (:to (:box 5 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 0))
+       (:to (:box 8 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 1))
+       (:to (:box 2 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 6 :out 0))
-       (:to (:box 3 :in 0))
+       (:to (:box 4 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 7 :out 0))
-       (:to (:box 5 :in 1))
+       (:to (:box 9 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 8 :out 0))
-       (:to (:box 7 :in 1))
+       (:from (:box 9 :out 0))
+       (:to (:box 8 :in 1))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
@@ -1438,6 +1439,7 @@
    (:value 60)
    (:id 11))
   (:box
+   (:library "Patterns")
    (:reference p-range)
    (:type :function)
    (:group-id nil)
@@ -1590,6 +1592,7 @@
    (:value 1)
    (:id 18))
   (:box
+   (:library "Patterns")
    (:reference p-w-node)
    (:type :function)
    (:group-id nil)
@@ -1672,6 +1675,7 @@
    (:value 1)
    (:id 22))
   (:box
+   (:library "Patterns")
    (:reference p-w-node)
    (:type :function)
    (:group-id nil)
@@ -1754,6 +1758,7 @@
    (:value 3)
    (:id 26))
   (:box
+   (:library "Patterns")
    (:reference p-w-node)
    (:type :function)
    (:group-id nil)
@@ -1836,6 +1841,7 @@
    (:value 3)
    (:id 30))
   (:box
+   (:library "Patterns")
    (:reference p-w-node)
    (:type :function)
    (:group-id nil)
@@ -1858,6 +1864,7 @@
    (:outputs (:output (:name "out") (:reactive nil)))
    (:id 31))
   (:box
+   (:library "Patterns")
    (:reference p-weighting)
    (:type :function)
    (:group-id nil)

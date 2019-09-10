@@ -5,12 +5,13 @@
  (:doc "")
  (:info
   (:created "2019/09/09 10:52:54")
-  (:modified "2019/09/09 10:54:44"))
- (:window (:size (1408 669)) (:position (419 414)))
+  (:modified "2019/09/10 9:50:28"))
+ (:window (:size (1408 669)) (:position (419 389)))
  (:grid nil)
  (:lock nil)
  (:boxes
   (:box
+   (:library "Patterns")
    (:reference p-markov-analyze)
    (:type :function)
    (:group-id nil)
@@ -352,7 +353,7 @@ return pattern")
     (:output (:name "loffset") (:reactive nil))
     (:output (:name "lchan") (:reactive nil))
     (:output (:name "llegato") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params (:staff :g))
    (:value
     (:object
@@ -1410,6 +1411,7 @@ return pattern")
    (:value 100)
    (:id 13))
   (:box
+   (:library "Patterns")
    (:reference p-next)
    (:type :function)
    (:group-id nil)
@@ -1485,7 +1487,7 @@ return pattern")
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object

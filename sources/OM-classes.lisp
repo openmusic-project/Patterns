@@ -35,7 +35,7 @@
   :indoc '("data" "for" "repeat" "of pattern" "returning" "eop-hook")
   :doc "Returns a cycle pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:cycle :of of 
+  (make-instance 'ompa::cycle :of of 
 			     :name name :for for :eop-hook eop-hook
 			     :repeat repeat :returning returning))
 
@@ -45,7 +45,7 @@
   :indoc '("of" "elide?" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a palindrome pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:palindrome :of of :elide elide
+  (make-instance 'ompa::palindrome :of of :elide elide
 				  :name name :for for :eop-hook eop-hook
 				  :repeat repeat :returning returning))
 
@@ -54,7 +54,7 @@
   :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a line pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:line :of of
+  (make-instance 'ompa::line :of of
 			    :name name :for for :eop-hook eop-hook
 			    :repeat repeat :returning returning))
 
@@ -63,7 +63,7 @@
   :indoc '("of" "elide-last?" "for" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a heap pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:heap :of of
+  (make-instance 'ompa::heap :of of
 			    :elide-last? elide-last?
 			    :state state 
 			    :name name :for for :eop-hook eop-hook
@@ -74,7 +74,7 @@
   :indoc '("of" "for" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a weighting pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:weighting :of of
+  (make-instance 'ompa::weighting :of of
 				 :state state
 				 :name name :for for :eop-hook eop-hook
 				 :repeat repeat :returning returning))
@@ -94,7 +94,7 @@
   :indoc '("of" "for" "past" "repeat" "name" "state" "returning" "eop-hook")
   :doc "Returns a markov pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:markov :of of
+  (make-instance 'ompa::markov :of of
 			      :past past 
 			      :name name :for for :eop-hook eop-hook :repeat repeat
 			      :past past :returning returning))
@@ -124,7 +124,7 @@ Performs an analysis of elements in list and prints or returns the results."
   :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a graph pattern"
   (assert repeat (repeat) "repeat must be 't' or a number")
-  (make-instance 'ompa:graph :of of
+  (make-instance 'ompa::graph :of of
 			     :name name :for for :eop-hook eop-hook
 			     :repeat repeat :returning returning))
 
@@ -160,7 +160,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :indoc '("of" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a accumulation pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:accumulation :of of
+  (make-instance 'ompa::accumulation :of of
 				    :name name :for for :eop-hook eop-hook
 				    :repeat repeat :returning returning))
 
@@ -169,7 +169,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :indoc '("function" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a pattern based on function 'thunk'"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:thunk :of function
+  (make-instance 'ompa::thunk :of function
 			     :name name :for for :eop-hook eop-hook
 			     :repeat repeat :returning returning))
 
@@ -179,7 +179,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :initvals '(nil (0 1 1))
   :doc "Returns a rotation pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:rotation :of of :rotations rotations
+  (make-instance 'ompa::rotation :of of :rotations rotations
 				:name name :for for :eop-hook eop-hook
 				:repeat repeat :returning returning))
 
@@ -198,7 +198,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   ;; (make-instance 'ompa:rewrite :of of :rules rules :initially initially
   ;; 		 :generations generations :name name :for for
   ;; 		 :eop-hook eop-hook :repeat repeat)
-  (eval `(make-instance 'ompa:rewrite
+  (eval `(make-instance 'ompa::rewrite
 			:of ',of
 			,@(when rules? `(:rules ',rules))
 			,@(when initially? `(:initially ',initially))
@@ -251,7 +251,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :initvals '(0 nil 1 1 nil)
   :doc "Returns a range pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (eval `(make-instance 'ompa:range
+  (eval `(make-instance 'ompa::range
   			,@(when from? `(:from ',from))
   			,@(when initially? `(:initially ',initially))
   			,@(when to? `(:to ',to))
@@ -280,7 +280,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :indoc '("of" "format" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a joiner pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:join :of of :format format
+  (make-instance 'ompa::join :of of :format format
 			    :name name :for for :eop-hook eop-hook :repeat repeat
 			    :returning returning))
 
@@ -289,7 +289,7 @@ where element is the value or sub-pattern in the node and is followed by one or 
   :indoc '("of" "repeat-for" "for" "repeat" "name" "returning" "eop-hook")
   :doc "Returns a copier pattern"
   (assert repeat (repeat) "repeat must be set to 't' or a number")
-  (make-instance 'ompa:copier :of of :repeat-for repeat-for
+  (make-instance 'ompa::copier :of of :repeat-for repeat-for
 			      :name name :for for :eop-hook eop-hook :repeat repeat
 			      :returning returning))
 

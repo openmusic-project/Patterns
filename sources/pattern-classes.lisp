@@ -338,7 +338,7 @@
 ;;; of constant datum is always 1.
 ;;;
 
-(defmethod reset-period (obj) obj 1)
+(defmethod reset-period ((obj t)) 1)
 
 (defmethod reset-period ((obj pattern))
   (let ((period (pattern-period obj))
@@ -352,6 +352,9 @@
           (if dyn
 	      (period-default period)
 	      (period-length period)))
+
+    (unless (numberp len) (break))
+
     ;; if we have dynamic period length we adjust next period length
     ;; for the number of 0 subperiods that this period will encounter.
     ;; in order for this to work, all substream periods must be reset
@@ -373,6 +376,7 @@
          obj)
         (when (> zeros 0) (setf len (max (- len zeros) 0)))))
     (setf (period-count period) len)
+
     (let ((hook (period-hook period)))
       (when hook (funcall hook)))
     len))

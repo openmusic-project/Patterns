@@ -38,5 +38,3 @@
 	       p-range p-join p-copier
 	       pval set-pval get-pval)
  ))
- 
-

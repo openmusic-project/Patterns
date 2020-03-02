@@ -266,10 +266,10 @@ where element is the value or sub-pattern in the node and is followed by one or 
 
 #|
 
-(setf aaa (p-range :from (p-cycle  '(60 74)) :downto 48 :by (p-cycle '(1 2 3)) :repeat 6 :returning #'(lambda (o) (cons ’a o))))
+(setf aaa (p-range :from (p-cycle  '(60 74)) :downto 48 :by (p-cycle '(1 2 3)) :repeat 6 :returning #'(lambda (o) (cons 'a o))))
 
 
-(setf aaa (p-range :below 10 :returning #'(lambda (o) (cons ’a o))))
+(setf aaa (p-range :below 10 :returning #'(lambda (o) (cons 'a o))))
 (p-next aaa t)
 (p-next (p-range :from 0 :by 1 :for 10) 20)
 

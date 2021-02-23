@@ -55,16 +55,16 @@
 
     The order of the Markov analysis, defaults to 1. 
 
-:print {true | :table | :pattern | false}
+:print? {true | :table | :pattern | false}
 
-    If the value is true (the default) then two results are
-    printed, a transition table and a pattern description. The
-    transition table that is printer details the distribution of
-    inputs and outputs in the data. The pattern description that
-    is printed will instantiate that table if it is
-    evalutated. If :print is just :table or :pattern then only
-    that form of the analysis is printed. If :print is false then
-    no analysis is printed.
+    If the value is :print? is 't' then two results are printed,
+    a transition table and a pattern description.  The printed
+    transition table details the distribution of inputs and
+    outputs in the data.  The printed pattern description will
+    instantiate that table if evalutated.  If :print? is one of
+    either :table or :pattern, then only that form of the
+    analysis is printed.  If :print? is 'nil' then no analysis is
+    printed.
 
 :pattern {false | true}
 

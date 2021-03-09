@@ -1096,7 +1096,10 @@
       (setf table
             (sort table
                   #'(lambda (x y) (before? (car x) (car y) labels))))
-      (let ((*standard-output* om::*om-stream*))
+      (let ((*standard-output*
+	      (if (boundp 'om::*om-stream*)
+		  om::*om-stream*
+		  *standard-output*)))
 	(when (member print? '(t table :table))
           (let* ((sp " ")
 		 (ln (make-string field :initial-element #\-)))

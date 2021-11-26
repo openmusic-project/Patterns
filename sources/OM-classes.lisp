@@ -1,4 +1,4 @@
-;;; Copyright (C) 2017 Anders Vinjar, <anders (dot) vinjar (at) bek (dot) no>
+;;; Copyright (C) 2017 Anders Vinjar
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See

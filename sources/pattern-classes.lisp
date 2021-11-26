@@ -1004,10 +1004,12 @@
   (let ((n (expt 10.0 places))) (/ (round (* value n)) n)))
 
 (defun markov-analyze (seq &key (order 1)
-			     (print? t)			    ; t pattern table
+			     (print? nil)		    ; t, nil, pattern, table
 			     (pattern? t)		    ; nil or pattern
 			     sort?
-			     (print-decimals 3) (period nil) key
+			     (print-decimals 3)
+			     (period nil)
+			     key
 			     returning)
   (let ((len (length seq))
         (labels '())				      ; the set of all outcomes 

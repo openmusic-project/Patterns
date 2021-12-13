@@ -11,4 +11,9 @@ Patterns are used everywhere in that book.
 
 Thanks to Rick Taube for laying out the initial versions of these very useful classes for composition work.
 
+Other music & sound programming environments including variations of
+the Pattern classes include SuperCollider:
+
+https://help.sccode.org/Streams-Patterns-Events/A%20Practical%20Guide/PG_01_Introduction.html
+
 Anders Vinjar - 2017

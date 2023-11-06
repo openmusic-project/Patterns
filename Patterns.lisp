@@ -1,4 +1,4 @@
-;;; Time-stamp: <2021-11-26 14:06:56 andersvi>
+;;; Time-stamp: <2023-11-06 14:15:45 andersvi>
 ;;;
 ;;; Patterns library for OM, Anders Vinjar
 ;;;
@@ -11,8 +11,6 @@
 ;;; book "Notes from the Metalevel":
 ;;; 
 ;;;	http://www.moz.ac.at/sem/lehre/lib/cm/Notes%20from%20the%20Metalevel/index.html
-;;;
-;;; Copyright (C) 2017 Anders Vinjar
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See
@@ -28,7 +26,7 @@
 
 
 (defparameter ompa::*pattern-version* '1.0)
-(defparameter ompa::*pattern-date* '2019-09-23)
+(defparameter ompa::*pattern-date* '2023-11-06)
 
 ;; (om::addpackage2pack (find-library "PATTERNS") om::*om-package-tree*)
 

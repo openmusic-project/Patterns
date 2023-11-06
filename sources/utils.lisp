@@ -1,5 +1,3 @@
-;;; Copyright (C) 2017 Anders Vinjar
-;;; 
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See
 ;;; http://www.cliki.net/LLGPL for the text of this agreement.

@@ -1,6 +1,6 @@
 # Patterns
 
-This Patterns library is inspird by Rick Taube's "Item Streams", as originally conceived in the Common Music application.
+This Patterns library is inspired by Rick Taube's "Item Streams", as originally conceived in the Common Music application.
 
 The library includes several examples and tutorial patches, available from the menu "Help->Import Tutorial Patches...".
 

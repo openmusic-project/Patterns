@@ -23,7 +23,7 @@
     (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
    (:align nil)
    (:text
-    "Patterns v. 0.97 - Anders Vinjar.
+    "Patterns v. 1.1 - Anders Vinjar.
 
 This Patterns library is an adaption to OpenMusic of Rick
 Taube's \"Pattern Streams\", as conceived and programmed in the

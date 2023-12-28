@@ -71,47 +71,22 @@
 (defmethod canonicalize-pattern-data ((obj pattern) data parser inits)
   (values data (length data) (not (some #'pattern? data))))
 
-;;;
-;;; make-load-form "decompiles" pattern
-;;;
-
-(defmethod make-load-form ((obj pattern) &optional env)
-  (let ((inits (pattern-external-inits obj))
-        (gvar
-         (intern (string-upcase (format nil "<~a>" (class-name (class-of obj)))) :cm)))
-    `(make-instance ,gvar ,@inits)))
-
-;;;
-;;; pattern-external-inits returns the list of slot inits to include in a
-;;; make-load-form expression. every subclass of pattern should call
-;;; (next-method) and append any local inits to that list.
+;;; SAVE, COPY:
+;;; 
+;;; specialize make-load-form, to use in om's omng-save and omng-copy methods:
 ;;;
 
-(defmethod pattern-external-inits ((obj pattern))
-  (let ((inits (slot-init-forms obj
-				:eval t
-				:ignore-defaults t
-				:only '(repeat parser returning counting traversing)
-				:key #'expand-pattern-value)))
-    (unless (logtest (pattern-flags obj) +default-period+)
-      (let ((per (pattern-period obj)))
-        (push (expand-pattern-value
-               (or (period-stream per) (period-length per)))
-              inits)
-        (push ':for inits)))
-    inits))
+(defmethod make-load-form ((self pattern) &optional env)
+  (multiple-value-bind (create init)
+      (make-load-form-saving-slots self)
+    `(let ((obj ,create))
+       (,(car init) obj ,@(cddr init)) obj)))
 
-(defun expand-pattern-value (val)
-  (cond ((pattern? val) (make-load-form val))
-        ((consp val)
-         (if (eq (first val) 'quote)
-             val
-	     (cons 'list
-		   (loop
-		      for x in val
-		      collect (expand-pattern-value x)))))
-        ((and val (symbolp val)) `',val)
-        (t val)))
+(defmethod om::omng-save ((self pattern) &optional (values? nil))
+  (make-load-form self))
+
+(defmethod om::omng-copy ((self ompa::pattern))
+  (make-load-form self))
 
 ;;;
 ;;; pattern-period-length returns the current period length
@@ -406,14 +381,6 @@
   (defparameter <cycle> (find-class 'cycle))
   (finalize-inheritance <cycle>))
 
-(defmethod pattern-external-inits ((obj cycle))
-  (append (list ':of
-                (cons 'list
-                      (loop
-			 for x in (car (pattern-data obj))
-			 collect (expand-pattern-value x))))
-          (call-next-method)))
-
 (defmethod initialize-instance :after ((obj cycle) &rest args)
   (let ((cyc (make-cycl)))
     (cycl-data-set! cyc (pattern-data obj))
@@ -438,17 +405,6 @@
   (defparameter <palindrome> (find-class 'palindrome))
   (finalize-inheritance <palindrome>))
 
-
-(defmethod pattern-external-inits ((obj palindrome))
-  (append (list ':of
-                (cons 'list
-                      (loop
-			 for x in (car (pattern-data obj))
-			 collect (expand-pattern-value x))))
-          (call-next-method)
-          (if (not (palindrome-elide obj))
-              (list)
-	      (list ':elide (expand-pattern-value (palindrome-elide obj))))))
 
 (defmethod map-pattern-data (fn (obj palindrome))
   (map nil fn (cycl-data (pattern-data obj))))
@@ -497,14 +453,6 @@
   (defparameter <line> (find-class 'line))
   (finalize-inheritance <line>))
 
-(defmethod pattern-external-inits ((obj line))
-  (append (list ':of
-                (cons 'list
-                      (loop
-			 for x in (car (pattern-data obj))
-			 collect (expand-pattern-value x))))
-          (call-next-method)))
-
 (defmethod initialize-instance :after ((obj line) &rest args)
   (declare (ignore args))
   (let ((cyc (make-cycl)))
@@ -537,49 +485,12 @@
 ;;   (defparameter <heap> (find-class 'heap))
 ;;   (finalize-inheritance <heap>))
 
-;; (defmethod pattern-external-inits ((obj heap))
-;;   (let ((inits (call-next-method)))
-;;     (if (eq *random-state* (pattern-random-state obj))
-;;         inits
-;; 	(append inits (list :state (pattern-random-state obj))))))
-
-;; (defmethod initialize-instance :after ((obj heap) &rest args)
-;;   (let ((cyc (pattern-data obj)))
-;;     (cycl-data-set! cyc (copy-list (cycl-data cyc)))))
-
-;; (defmethod next-in-pattern ((obj heap))
-;;   (flet ((shufl (lis len state)
-;;            (loop
-;; 	      for i below len
-;; 	      for j = (random len state)
-;; 	      for v = (elt lis i)
-;; 	      do
-;; 		(setf (elt lis i) (elt lis j))
-;; 		(setf (elt lis j) v))
-;;            lis))
-;;     (let ((cyc (pattern-data obj)))
-;;       (when (null (cycl-tail cyc))
-;; 	(cycl-tail-set! cyc
-;; 			(shufl
-;; 			 (cycl-data cyc)
-;; 			 (pattern-length obj)
-;; 			 (pattern-random-state obj))))
-;;       (pop-cycl cyc))))
-
 (progn
   (defclass heap (cycle)
     ((random-state :initform *random-state* :initarg :state :accessor pattern-random-state)
      (elide-last? :initform nil :initarg :elide-last? :accessor heap-elide-last?)))
   (defparameter <heap> (find-class 'heap))
   (finalize-inheritance <heap>))
-
-(defmethod pattern-external-inits ((obj heap))
-  (let ((inits (call-next-method))
-	(state (pattern-random-state obj))
-	(elide-last? (heap-elide-last? obj)))
-    (append inits
-	    (and state (list :state state))
-	    (and elide-last? (list :elide-last? elide-last?)))))
 
 (defmethod initialize-instance :after ((obj heap) &rest args)
   (let ((cyc (pattern-data obj)))
@@ -635,33 +546,6 @@
      (adjustable :initform nil :initarg :adjustable :accessor weighting-adjustable)))
   (defparameter <weighting> (find-class 'weighting))
   (finalize-inheritance <weighting>))
-
-(defmethod pattern-external-inits ((obj weighting))
-  (flet ((fnc (n) (let ((dat (expand-pattern-value (random-item-datum n)))
-			(lst (list)))
-		    ;; push in reverse order.
-		    (unless (null (random-item-max n))
-		      (push (expand-pattern-value (random-item-max n)) lst)
-		      (push ':max lst))
-		    (unless (or (not (numberp (random-item-min n)))
-				(= (random-item-min n) 1))
-		      (push (expand-pattern-value (random-item-min n)) lst)
-		      (push ':min lst))
-		    (unless (and (numberp (random-item-weight n))
-				 (= (random-item-weight n) 1))
-		      (push (expand-pattern-value (random-item-weight n)) lst)
-		      (push ':weight lst))
-		    (if (null lst)
-			dat
-			(cons 'list (cons dat lst))))))
-    (let ((lst (call-next-method)))
-      (append (list :of (cons 'list
-			      (loop for x in (car (pattern-data obj))
-				 collect (fnc x))))
-              lst
-              (if (eq *random-state* (pattern-random-state obj))
-                  '()
-		  (list :state (pattern-random-state obj)))))))
 
 (defmethod default-period-length ((obj weighting))
   ;; set the default period length of an adjustable or all-subpattern weighting
@@ -842,34 +726,10 @@
 (progn
   (defclass markov (pattern)
     ((past :initform '() :initarg :past :accessor markov-pattern-past)
-     (order :accessor markov-pattern-order)
+     (order :initform 1 :accessor markov-pattern-order)
      (produce :initform nil :initarg :produce :accessor markov-pattern-produce)))
   (defparameter <markov> (find-class 'markov))
   (finalize-inheritance <markov>))
-
-(defmethod pattern-external-inits ((obj markov))
-  ;; FIX --  past is not saved...
-  (flet ((fnc (n) `',(append (first n)
-			     (list '->)
-			     (loop
-				with s = 0
-				for x in (cddr n)
-				for w = (- (second x) s)
-				collect (if (= w 1)
-					    (car x)
-					    (list (car x) w))
-				do (setf s (second x))))))
-    (append (list ':of
-                  (cons 'list
-                        (loop
-			   for x in (cdr (pattern-data obj))
-			   collect (fnc x))))
-            (call-next-method)
-            (if (not (markov-pattern-produce obj))
-                (list)
-		(list ':produce
-		      (expand-pattern-value
-		       (markov-pattern-produce obj)))))))
 
 (defmethod canonicalize-pattern-data ((obj markov) data parser inits)
   (declare (ignore obj parser))
@@ -929,7 +789,8 @@
   (declare (ignore args))
   (unless (consp (markov-pattern-past obj))
     (setf (markov-pattern-past obj)
-          (make-list (markov-pattern-order obj) :initial-element '*))))
+          (make-list (or (markov-pattern-order obj) 1)
+		     :initial-element '*))))
 
 (defmethod next-in-pattern ((obj markov))
   ;; markov data kept as a list of lists. each list is in the form:
@@ -1173,24 +1034,6 @@
   (defparameter <graph> (find-class 'graph))
   (finalize-inheritance <graph>))
 
-(defmethod pattern-external-inits ((obj graph))
-  (flet ((fnc (n) (cons 'list
-			(list (expand-pattern-value (graph-node-datum n))
-			      ':id (graph-node-id n)
-			      ':to (expand-pattern-value (graph-node-to n))))))
-    (append (list ':of
-                  (cons 'list
-                        (loop
-			   for x in (pattern-data obj)
-			   collect (fnc x))))
-            (call-next-method)
-            (if (null (graph-props obj))
-                (list)
-		(list ':props (expand-pattern-value (graph-props obj))))
-            (if (eq (graph-selector obj) #'default-graph-node-select)
-                (list)
-		(list ':selector (graph-selector obj))))))
-
 (defmethod initialize-instance :after ((obj graph) &rest args)
   (let ((nodes (pattern-data obj)) (last (graph-last obj)))
     (when last
@@ -1330,10 +1173,6 @@
   (defparameter <thunk> (find-class 'thunk))
   (finalize-inheritance <thunk>))
 
-(defmethod pattern-external-inits ((obj thunk))
-  (append (list ':of (expand-pattern-value (car (pattern-data obj))))
-          (call-next-method)))
-
 (defmethod default-period-length ((obj thunk)) obj 1)
 
 ;; (defmethod initialize-instance :after ((obj thunk) &rest args)
@@ -1374,17 +1213,6 @@
     ((change :initform 0 :initarg :rotations :accessor rotation-change)))
   (defparameter <rotation> (find-class 'rotation))
   (finalize-inheritance <rotation>))
-
-(defmethod pattern-external-inits ((obj rotation))
-  (append (list ':of
-                (cons 'list
-                      (loop
-			 for x in (car (pattern-data obj))
-			 collect (expand-pattern-value x))))
-          (if (equal (rotation-change obj) 0)
-              (list)
-	      (list ':rotations
-		    (expand-pattern-value (rotation-change obj))))))
 
 (defmethod initialize-instance :after ((obj rotation) &rest args)
   ;; pattern is initialized now so that rotations only happen after the first
@@ -1450,28 +1278,6 @@
                (setf prev (funcall func key val prev)))
            table)
   prev)
-
-(defmethod pattern-external-inits ((obj rewrite))
-  (flet ((fnc (n) (cons 'list
-			(append (list (expand-pattern-value
-				       (rewrite-node-datum n)))
-				(if (eq (rewrite-node-datum n) (rewrite-node-id n))
-				    (list)
-				    (list ':id (rewrite-node-id n)))
-				(list ':to
-				      `',(loop
-					    for x in (rewrite-node-to n)
-					    collect (if (listp x)
-							(rewrite-node-id
-							 x)
-							x)))))))
-    (append (list ':of
-                  (cons 'list
-                        (hash-fold
-                         #'(lambda (k v l) k (cons (fnc v) l))
-                         '()
-                         (rewrite-table obj))))
-            (call-next-method))))
 
 (defmethod initialize-instance :after ((obj rewrite) &rest args)
   (let ((table (make-hash-table :size 103 :test #'equal))
@@ -1719,24 +1525,6 @@
   (defparameter <range> (find-class 'range))
   (finalize-inheritance <range>))
 
-(defmethod pattern-external-inits ((obj range))
-  ;; from to downto above below by pickto
-  (let ((bits (pattern-flags obj)))
-    (append (list (if (%range-initially? bits) ':initially ':from)
-                  (expand-pattern-value (range-from obj)))
-            (if (range-to obj)
-                (list (if (%range-random? bits)
-			  ':pickto
-			  (if (funcall (range-test obj) 2 0 2) ':below ':to))
-                      (expand-pattern-value (range-to obj)))
-		(if (range-downto obj)
-		    (list (if (funcall (range-test obj) 0 0 2) ':above :downto)
-			  (expand-pattern-value (range-downto obj)))
-		    (list)))
-            (list (if (%range-stepping? bits) ':stepping ':by)
-                  (expand-pattern-value (range-by obj)))
-            (call-next-method))))
-
 (defmethod initialize-instance :after ((obj range) &rest args)
   (let* ((raw (pattern-data obj))
          (data (car raw))
@@ -1963,15 +1751,6 @@
   (defparameter <join> (find-class 'join))
   (finalize-inheritance <join>))
 
-(defmethod pattern-external-inits ((obj join))
-  (append (list ':of
-                (cons 'list
-                      (loop
-			 for x in (pattern-data obj)
-			 collect (expand-pattern-value x))))
-          (list ':format (expand-pattern-value (join-format obj)))
-          (call-next-method)))
-
 (defmethod initialize-instance :after ((obj join) &rest args)
   (let* ((per (pattern-period obj))
          (len (length (pattern-data obj)))
@@ -2085,10 +1864,6 @@
      (repfor :accessor copier-repfor :initform nil :initarg :repeat-for)))
   (defparameter <copier> (find-class 'copier))
   (finalize-inheritance <copier>))
-
-(defmethod pattern-external-inits ((obj copier))
-  (append (list ':of (expand-pattern-value (copier-source obj)))
-          (call-next-method)))
 
 (defmethod initialize-instance :after ((obj copier) &rest args)
   (let ((data (pattern-data obj)))

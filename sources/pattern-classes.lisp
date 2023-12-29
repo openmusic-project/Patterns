@@ -1273,11 +1273,6 @@
   (defparameter <rewrite> (find-class 'rewrite))
   (finalize-inheritance <rewrite>))
 
-(defun hash-fold (func prev table)
-  (maphash #'(lambda (key val)
-               (setf prev (funcall func key val prev)))
-           table)
-  prev)
 
 (defmethod initialize-instance :after ((obj rewrite) &rest args)
   (let ((table (make-hash-table :size 103 :test #'equal))

@@ -1273,6 +1273,23 @@
   (defparameter <rewrite> (find-class 'rewrite))
   (finalize-inheritance <rewrite>))
 
+;;
+;; specialize copy and save because of circular structure
+;; btw: is there a omng-save for hash-tables in OM?
+;; 
+
+(defmethod om::omNG-save ((self rewrite) &optional (values? nil))
+  `(when (find-class ',(type-of self) nil)
+     (let ((slots (remove-if #'(lambda (slot) (member slot '(data table)))
+			     (mapcar #'slot-definition-name (class-slots (find-class 'rewrite))))))
+       (multiple-value-bind (create init)
+	   (make-load-form-saving-slots self :slot-names slots)
+	 `(let ((obj ,create))
+	    (,(car init) obj ,@(cddr init))
+	    obj)
+	 ))))
+
+(defmethod om::omNG-copy ((self rewrite)) (om::copy-instance self))
 
 (defmethod initialize-instance :after ((obj rewrite) &rest args)
   (let ((table (make-hash-table :size 103 :test #'equal))

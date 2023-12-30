@@ -1269,22 +1269,26 @@
   (defclass rewrite (pattern)
     ((table :initform nil :initarg :initially :accessor rewrite-table)
      (rules :initform '() :initarg :rules :accessor rewrite-rules)
-     (generations :initform most-positive-fixnum :initarg :generations :accessor rewrite-generations)))
+     (generations :initform most-positive-fixnum :initarg :generations :accessor rewrite-generations)
+     (inits :initform nil :initarg :inits :accessor rewrite-inits)
+     ))
   (defparameter <rewrite> (find-class 'rewrite))
   (finalize-inheritance <rewrite>))
 
 ;;
 ;; specialize copy and save because of circular structure
-;; btw: is there a omng-save for hash-tables in OM?
-;; 
+;;
 
 (defmethod om::omNG-save ((self rewrite) &optional (values? nil))
-  `(when (find-class ',(type-of self) nil)
+  (when (find-class 'rewrite nil)
      (let ((slots (remove-if #'(lambda (slot) (member slot '(data table)))
-			     (mapcar #'slot-definition-name (class-slots (find-class 'rewrite))))))
+			     (mapcar #'slot-definition-name
+				     (class-slots (find-class 'rewrite))))))
        (multiple-value-bind (create init)
 	   (make-load-form-saving-slots self :slot-names slots)
-	 `(let ((obj ,create))
+	 ;; use stored initial args to create and fill new instance
+	 (declare (ignore create))
+	 `(let ((obj (apply #'make-instance 'rewrite ',(rewrite-inits self ))))
 	    (,(car init) obj ,@(cddr init))
 	    obj)
 	 ))))
@@ -1300,6 +1304,10 @@
     (setf preset
           (or (rewrite-table obj)
               (and (first nodes) (list (rewrite-node-id (first nodes))))))
+
+    ;; store initial rule-setup to recall in load-forms
+    (setf (rewrite-inits obj) args)
+
     ;; enter each node in hashtable by id
     (dolist (n nodes)
       (setf (gethash (rewrite-node-id n) table) n))

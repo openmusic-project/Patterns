@@ -97,7 +97,7 @@
 (defmethod om::omng-save ((self pattern) &optional (values? nil))
   (make-load-form self))
 
-(defmethod om::omng-copy ((self ompa::pattern))
+(defmethod om::omng-copy ((self pattern))
   (make-load-form self))
 
 ;;;

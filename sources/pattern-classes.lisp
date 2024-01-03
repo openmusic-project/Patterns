@@ -33,6 +33,18 @@
 
 (defstruct period (count 0) length stream default (omit 0) (reps 0) (hook nil))
 
+;; special load-form to handle streams also containing pattern-streams
+
+(defun make-period-load-form (prd)
+  (let* ((new (copy-structure prd)))
+    (when (pattern? (period-stream prd))
+          (setf (period-stream new) (make-load-form (period-stream prd))))
+    new))
+
+(defmethod make-load-form ((self period) &optional env)
+  (make-period-load-form self))
+
+
 (progn
   (defclass container ()
     ((name :initform nil :accessor object-name :initarg :name)))

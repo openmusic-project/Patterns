@@ -1029,6 +1029,17 @@
 
 (defstruct graph-node id datum to props)
 
+(defun make-graph-node-load-form (gr)
+  (let* ((new (copy-structure gr)))
+    (when (pattern? (graph-node-to gr))
+      (setf (graph-node-to new) (make-load-form (graph-node-to new))))
+    (when (pattern? (graph-node-datum gr))
+      (setf (graph-node-datum new) (make-load-form (graph-node-datum new))))
+    new))
+
+(defmethod make-load-form ((self graph-node) &optional env)
+  (make-graph-node-load-form self))
+
 (defun default-graph-node-select (obj node lastids)
   (let ((to (graph-node-to node)))
     (if (consp to)

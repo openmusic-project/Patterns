@@ -1063,7 +1063,7 @@
   (let ((special-slots '(data period selector starting-node-index)))
 
     (when (find-class 'graph nil)
-      (let* ((slot-names-all (mapcar #'slot-name (class-slots (find-class (type-of self)))))
+      (let* ((slot-names-all (mapcar #'om::slot-name (class-slots (find-class (type-of self)))))
 	     (slot-names (remove-if #'(lambda (n) (member n special-slots))
 				    slot-names-all)))
     

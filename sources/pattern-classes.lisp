@@ -1057,6 +1057,30 @@
   (defparameter <graph> (find-class 'graph))
   (finalize-inheritance <graph>))
 
+
+(defmethod om::omNG-save ((self graph) &optional (values? nil))
+  ;; special care for slots possibly containing patterns inside:
+  (let ((special-slots '(data period selector starting-node-index)))
+
+    (when (find-class 'graph nil)
+      (let* ((slot-names-all (mapcar #'slot-name (class-slots (find-class (type-of self)))))
+	     (slot-names (remove-if #'(lambda (n) (member n special-slots))
+				    slot-names-all)))
+    
+	(let ((data (loop for ddd in (pattern-data self)
+			  collect (cond ((or (pattern? ddd) (graph-node-p ddd)) (make-load-form ddd))
+					((listp ddd) (mapcar #'make-load-form ddd))
+					(t ddd))))
+	      (period (make-period-load-form (pattern-period self))))
+	  (multiple-value-bind (create init)
+	      (make-load-form-saving-slots self :slot-names slot-names)
+	    (declare (ignore create))
+	    `(let ((obj (clos::mlf-allocate-instance 'graph)))
+	       (,(car init) obj ,@(cddr init))
+	       (setf (slot-value obj 'data) ',data)
+	       (setf (slot-value obj 'period) ,period )
+	       obj)))))))
+
 (defmethod initialize-instance :after ((obj graph) &rest args)
   (let ((nodes (pattern-data obj)) (last (graph-last obj)))
     (when last
